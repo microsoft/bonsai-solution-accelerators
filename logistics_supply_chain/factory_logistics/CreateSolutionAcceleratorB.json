@@ -1,0 +1,94 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+     "parameters": {
+        "bonsaiWorkspaceLocation": {
+            "type": "string"
+        } ,
+        "bonsaiWorkspaceName": {
+            "type": "string",
+            "defaultValue": "logisticsWorkspace",
+            "metadata": {
+                "description": "The name of the Bonsai workspace to create."
+            }
+        },
+        "virtualMachineName": {
+            "type": "string",
+            "defaultValue": "bonsaiSaVm",
+            "maxLength": 15,
+            "metadata" : { 
+                "description": "The name of the virual machine that is created for the solution accelerator."
+            }
+        },
+        "virtualMachinePassword": {
+            "type": "secureString",
+            "minLength": 12,
+            "maxLength": 123,
+            "metadata": {
+                "description": "The password for the virual machine."
+            }
+        }
+    },
+    "variables": {
+      
+        "createBonsaiResource": "https://raw.githubusercontent.com/davidhcoe/b_sas/master/CreateBonsaiArm.json",
+        "createVmResource": "https://raw.githubusercontent.com/davidhcoe/b_sas/master/CreateWindowsVirtualMachineWithExtensionB.json",
+        "adminUserName": "BonsaiUser",
+        "bonsaiWorkspaceName": "[parameters('bonsaiWorkspaceName')]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-05-01",
+            "name": "createBonsai",
+            "type": "Microsoft.Resources/deployments",
+            "comments": "create the Bonsai account",
+            "properties": {
+                "mode": "incremental",
+                "templateLink": {
+                    "uri": "[variables('createBonsaiResource')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "name": {
+                        "comments": "cannot have spaces",
+                        "value": "[replace(variables('bonsaiWorkspaceName'), ' ','')]"
+                    },
+                    "location": {
+                        "value": "[parameters('bonsaiWorkspaceLocation')]"
+                    }
+                }
+            }
+        },
+
+         {
+            "apiVersion": "2019-10-01",
+            "name": "createVmResource",
+            "type": "Microsoft.Resources/deployments",
+            "comments": "create the virtual machine",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('createVmResource')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters": {
+                    "virtualMachineName": {
+                        "value": "[parameters('virtualMachineName')]"
+                    },
+                    "adminUsername": {
+                        "value": "[variables('adminUsername')]"
+                    },
+                    "adminPassword": {
+                        "value": "[parameters('virtualMachinePassword')]"
+                    },
+                    "bonsaiWorkspaceId": {
+                        "value": "[reference('createBonsai').outputs.workspaceId.value]"
+                    },
+                    "bonsaiContainerRegistry": {
+                        "value": "[reference('createBonsai').outputs.bonsaiAcr.value]"
+                    }
+                }
+            }
+         } 
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "String"
+        },
+        "location": {
+            "type": "String",
+            "allowedValues": ["westus2", "westus"]
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.AutonomousSystems/workspaces",
+            "apiVersion": "2020-05-01-preview",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "identity": {
+                "type": "systemAssigned"
+            },
+            "properties": {}
+        }
+        ],
+        "outputs": {
+            "workspaceId": {
+                "value": "[reference(parameters('name')).workspaceId]",
+                "type": "string"
+            },
+            "bonsaiAcr": {
+                "value": "[substring(reference(parameters('name')).containerRegistry, add(lastIndexOf(reference(parameters('name')).containerRegistry, '/'),1),sub(sub(length(reference(parameters('name')).containerRegistry), lastIndexOf(reference(parameters('name')).containerRegistry, '/')),1))]",
+                "type": "string"
+            }
+        }
+}
