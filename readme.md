@@ -1,2 +1,0 @@
-# Bonsai Solution Accelerators
-
