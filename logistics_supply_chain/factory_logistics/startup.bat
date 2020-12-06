@@ -147,8 +147,8 @@ set startlog=C:\startup\startlog.txt
      cmd /c tar -xf c:\startup\ple8.7.zip
 
      REM set the firewall rules (needs to run for the current user, not before) to allow AnyLogic and Java
-     REM echo %date% - %time% - Importing firewall rules >>  %startlog%
-     REM cmd /c netsh advfirewall import c:\startup\advfirewallpolicy.wfw 
+     echo %date% - %time% - Importing firewall rules >>  %startlog%
+     cmd /c netsh advfirewall import c:\startup\advfirewallpolicy.wfw 
 
      REM go to the AnyLogic directory
      echo %date% - %time% - Moving to "C:\Program Files\AnyLogic 8.7 Personal Learning Edition\" >> %startlog%
