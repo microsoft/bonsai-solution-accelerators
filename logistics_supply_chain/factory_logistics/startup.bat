@@ -120,8 +120,8 @@ set startlog=C:\startup\startlog.txt
      echo %date% - %time% - Opening https://preview.bons.ai/ >> %startlog%
      cmd /c start msedge https://preview.bons.ai/
      
-     echo %date% - %time% - Opening https://github.com/davidhcoe/b_sas/blob/master/getting_started_mfg.md >> %startlog%
-     cmd /c start msedge https://github.com/davidhcoe/b_sas/blob/master/getting_started_mfg.md
+     echo %date% - %time% - Opening https://github.com/microsoft/bonsai-solution-accelerators/blob/main/logistics_supply_chain/factory_logistics/getting_started_mfg.md >> %startlog%
+     cmd /c start msedge https://github.com/microsoft/bonsai-solution-accelerators/blob/main/logistics_supply_chain/factory_logistics/getting_started_mfg.md
 
      REM install the inkling extension for VS Code
      echo.

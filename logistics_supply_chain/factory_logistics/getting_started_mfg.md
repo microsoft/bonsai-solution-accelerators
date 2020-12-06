@@ -1,7 +1,3 @@
-# Getting Started with your Solution Accelerator
+# Getting Started with your Factory Logistics Solution Accelerator
 
-Launch the browser and enter your code
-
-Accept the EULA, if required
-
-Good luck
+See write up here
