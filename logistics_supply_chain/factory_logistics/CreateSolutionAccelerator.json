@@ -31,8 +31,8 @@
     },
     "variables": {
       
-        "createBonsaiResource": "https://raw.githubusercontent.com/davidhcoe/b_sas/master/CreateBonsaiArm.json",
-        "createVmResource": "https://raw.githubusercontent.com/davidhcoe/b_sas/master/CreateWindowsVirtualMachineWithExtension.json",
+        "createBonsaiResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/CreateBonsaiArm.json",
+        "createVmResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/CreateWindowsVirtualMachineWithExtension.json",
         "adminUserName": "BonsaiUser",
         "bonsaiWorkspaceName": "[parameters('bonsaiWorkspaceName')]"
     },
