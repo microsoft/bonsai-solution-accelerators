@@ -9,14 +9,9 @@ Deploy with Bastion
 
 [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fbonsai-solution-accelerators%2Fmain%2Flogistics_supply_chain%2Ffactory_logistics%2FCreateSolutionAcceleratorB.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fbonsai-solution-accelerators%2Fmain%2Flogistics_supply_chain%2Ffactory_logistics%2FcreateUiDefinition.json)
 
-<!-- This will deploy a solution accelerator by clicking the button below:
+<!-- # Single Resource
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdavidhcoe%2Fb_sas%2Fmaster%2FCreateSolutionAccelerator.json)  
- -->
-
-# Single Resource
-
-https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdavidhcoe%2Fb_sas%2Fmaster%2FCreateWindowsVirtualMachineWithExtensionB.json   
+https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdavidhcoe%2Fb_sas%2Fmaster%2FCreateWindowsVirtualMachineWithExtensionB.json    -->
 
 
 ## Resources Deployed

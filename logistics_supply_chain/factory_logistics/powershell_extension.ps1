@@ -103,7 +103,7 @@ cmd /c .\anylogic-ple-8.7.0.x86_64.exe /S
 #$log += "Downloading firewall rules" + $nl
 
 #download the firewall rules
-#$wc.DownloadFile("https://raw.githubusercontent.com/davidhcoe/b_sas/master/advfirewallpolicy.wfw","C:\StartUp\advfirewallpolicy.wfw")
+$wc.DownloadFile("https://github.com/microsoft/bonsai-solution-accelerators/blob/main/logistics_supply_chain/factory_logistics/advfirewallpolicy.wfw?raw=true","C:\StartUp\advfirewallpolicy.wfw")
 
 $log += "Downloading AnyLogic environment configuration" + $nl
 
@@ -113,7 +113,7 @@ $wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/ple8.7.z
 $log += "Downloading AnyLogic environment configuration" + $nl
 
 #download the startup script to C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
-$wc.DownloadFile("https://raw.githubusercontent.com/davidhcoe/b_sas/master/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
 
 $log += "Downloading startup" + $nl
 
