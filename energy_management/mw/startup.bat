@@ -100,6 +100,10 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    echo %date% - %time% - Running az acr build --registry %BONSAI_ACR% --image simulink-cartpole:v1 . >> %startlog%
    cmd /c az acr build --registry %BONSAI_ACR% --image simulink-cartpole:v1 . 
 
+   REM -------------------------------
+   REM TODO: Zip up directory or need a dockerfile
+   REM -------------------------------
+
    REM now add the sim package for the user
    REM set url=https://%BONSAI_ACR%.azurecr.io/mathworks-abca:v1 %ImageName% 
    echo %date% - %time% - Running bonsai simulator package add -n "Simulink Cartpole" -u %BONSAI_ACR%.azurecr.io/simulink-cartpole:v1 -i 25 -r 1.0 -m 1.0 -p Linux --max-instance-count 50 >> %startlog%
@@ -108,7 +112,7 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    REM start the three tabs for the user
 
    echo %date% - %time% - Opening https://matlab.mathworks.com >> %startlog%
-   cmd /c start msedge https://matlab.mathworks.com/
+   cmd /c start msedge https://www.mathworks.com/campaigns/products/trials.html
 
    echo %date% - %time% - Opening https://preview.bons.ai/ >> %startlog%
    cmd /c start msedge https://preview.bons.ai/

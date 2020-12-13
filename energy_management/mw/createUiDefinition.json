@@ -52,7 +52,7 @@
 						"type": "Microsoft.Common.TextBox",
 						"label": "Bonsai Workspace Name",
 						"placeholder": "",
-						"defaultValue": "logisticsWorkspace",
+						"defaultValue": "emgmtWorkspace",
 						"toolTip": "Use only allowed characters",
 						"constraints": {
 							"required": true,

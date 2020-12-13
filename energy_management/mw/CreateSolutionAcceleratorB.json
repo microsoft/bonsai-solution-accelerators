@@ -7,7 +7,7 @@
         } ,
         "bonsaiWorkspaceName": {
             "type": "string",
-            "defaultValue": "logisticsWorkspace",
+            "defaultValue": "emgmtWorkspace",
             "metadata": {
                 "description": "The name of the Bonsai workspace to create."
             }
