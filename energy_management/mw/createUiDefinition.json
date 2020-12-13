@@ -1,0 +1,135 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "basics": [],
+        "steps": [
+            {
+                "name": "bonsaiInfo",
+                "label": "Bonsai Workspace Details",
+                "elements": [
+                     {
+						"name": "infoBox1",
+						"type": "Microsoft.Common.InfoBox",
+						"visible": true,
+						"options": {
+							"icon": "Info",
+							"text": "Bonsai can only be deployed in the US West or US West 2 regions.",
+							"uri": "https://docs.microsoft.com/en-us/bonsai/guides/account-setup"
+						}
+					},
+					 {
+						"name": "bonsaiInfoBlock",
+						"type": "Microsoft.Common.TextBlock",
+						"visible": true,
+						"options": {
+							"text": "Please select the region and name of the Bonsai workspace:"
+						}
+					},
+					 {
+                        "name": "bonsaiWorkspaceLocation",
+                        "type": "Microsoft.Common.OptionsGroup",
+                        "label": "Bonsai Workspace Region",
+                        "defaultValue": "US West 2",
+                        "toolTip": "",
+                        "constraints": {
+                            "allowedValues": [
+                                {
+                                    "label": "US West",
+                                    "value": "westus"
+                                },
+                                {
+                                    "label": "US West 2",
+                                    "value": "westus2"
+                                }
+                            ],
+                            "required": true
+                        }
+					 },
+                    {
+						"name": "bonsaiWorkspaceName",
+						"type": "Microsoft.Common.TextBox",
+						"label": "Bonsai Workspace Name",
+						"placeholder": "",
+						"defaultValue": "logisticsWorkspace",
+						"toolTip": "Use only allowed characters",
+						"constraints": {
+							"required": true,
+							"regex": "^[a-z0-9A-Z]{1,30}$",
+							"validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+						},
+						"visible": true
+					}
+                ]
+            },
+            {
+                "name": "vmParameters",
+                "label": "Virtual Machine Details",
+                "elements": [
+                    {
+						"name": "infoBox1",
+						"type": "Microsoft.Common.InfoBox",
+						"visible": true,
+						"options": {
+							"icon": "Info",
+							"text": "This virtual machine will be created in the same region as the resource group that is hosting it. The virtual machine size is Standard_D2_v4 with the Windows 10 operating system. You may need to verify the availability of this size in your chosen region or compliance with your Azure subscription policy.",
+							"uri": "https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines"
+						}
+					},
+					{
+						"name": "virtualMachineName",
+						"type": "Microsoft.Common.TextBox",
+						"label": "Virtual Machine Name",
+						"placeholder": "",
+						"defaultValue": "bonsaiSaVm",
+						"toolTip": "Use only allowed characters",
+						"constraints": {
+							"required": true,
+							"regex": "^[a-z0-9A-Z]{1,15}$",
+							"validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+						},
+						"visible": true
+					},
+					{
+						"name": "virtualMachineAdmin",
+						"type": "Microsoft.Common.TextBox",
+						"label": "Username",
+						"placeholder": "",
+						"defaultValue": "BonsaiUser",
+						"toolTip": "The username for the machine is BonsaiUser. This cannot be changed.",
+						"constraints": {
+							"required": true
+						},
+						"visible": true
+					},
+                    {
+                        "name": "vmCredentials",
+                        "type": "Microsoft.Compute.CredentialsCombo",
+                        "label": {
+                            "password": "Password",
+                            "confirmPassword": "Confirm password"
+                        },
+                        "toolTip": {
+                            "password": ""
+                        },
+                        "constraints": {
+                            "required": true
+                        },
+                        "options": {
+                            "hideConfirmation": false
+                        },
+                        "osPlatform": "Windows",
+                        "visible": true
+                    }
+                ]
+            }
+        ],
+        "outputs": {
+            "bonsaiWorkspaceLocation": "[steps('bonsaiInfo').bonsaiWorkspaceLocation]",
+			"bonsaiWorkspaceName": "[steps('bonsaiInfo').bonsaiWorkspaceName]",
+            "virtualMachineName": "[steps('vmParameters').virtualMachineName]",
+			"virtualMachinePassword": "[steps('vmParameters').vmCredentials.password]"
+        }
+    }
+}
