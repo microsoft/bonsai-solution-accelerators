@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1500, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="./web/img/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="web/css/landing-page-v4.css" />
+    <style>
+      @font-face {
+        font-family: "Segoe UI-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("web/fonts/segoeui.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "Full MDL2 Assets-Regular";
+        font-style: normal;
+        font-weight: 400;
+        src: url("web/fonts/FullMDL2.1.8.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "Segoe UI-Light";
+        font-style: normal;
+        font-weight: 300;
+        src: url("web/fonts/segoeui.ttf") format("truetype");
+      }
+
+      @font-face {
+        font-family: "Segoe UI-Semilight";
+        font-style: normal;
+        font-weight: 400;
+        src: url("web/fonts/segoeui.ttf") format("truetype");
+      }
+
+      .anima-component-wrapper a,
+      .anima-screen a {
+        text-decoration: none;
+        display: contents;
+      }
+
+      .anima-full-width-a {
+        width: 100%;
+      }
+
+      .anima-full-height-a {
+        height: 100%;
+      }
+
+      .anima-screen textarea:focus,
+      .anima-screen input:focus {
+        outline: none;
+      }
+
+      .anima-screen *,
+      .anima-component-wrapper * {
+        box-sizing: border-box;
+      }
+
+      .anima-screen div {
+        -webkit-text-size-adjust: none;
+      }
+
+      .anima-container-center-vertical,
+      .anima-container-center-horizontal {
+        pointer-events: none;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+      }
+
+      .anima-container-center-vertical {
+        align-items: center;
+        height: 100%;
+      }
+
+      .anima-container-center-horizontal {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .anima-container-center-vertical > *,
+      .anima-container-center-horizontal > * {
+        pointer-events: auto;
+        flex-shrink: 0;
+      }
+
+      .anima-component-wrapper,
+      .anima-screen {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-all;
+        word-break: break-word;
+      }
+
+      .anima-auto-animated div {
+        opacity: 0;
+        position: absolute;
+        --anima-z-index: -1;
+      }
+
+      .anima-auto-animated .anima-container-center-vertical,
+      .anima-auto-animated .anima-container-center-horizontal {
+        opacity: 1;
+      }
+
+      .anima-overlay {
+        position: absolute;
+        opacity: 0;
+        display: none;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+      }
+
+      .anima-animate-appear {
+        opacity: 0;
+        display: block;
+        animation: anima-reveal 0.3s ease-in-out 1 normal forwards;
+      }
+
+      .anima-animate-disappear {
+        opacity: 1;
+        display: block;
+        animation: anima-reveal 0.3s ease-in-out 1 reverse forwards;
+      }
+
+      .anima-animate-nodelay {
+        animation-delay: 0s;
+      }
+
+      @keyframes anima-reveal {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .align-self-flex-start {
+        align-self: flex-start;
+      }
+      .align-self-flex-end {
+        align-self: flex-end;
+      }
+      .align-self-flex-center {
+        align-self: center;
+      }
+      .anima-valign-text-middle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .anima-valign-text-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .anima- input:focus {
+        outline: none;
+      }
+      .anima-component-wrapper,
+      .anima-component-wrapper * {
+        pointer-events: none;
+      }
+
+      .anima-component-wrapper a *,
+      .anima-component-wrapper a,
+      .anima-component-wrapper input,
+      .anima-component-wrapper video,
+      .anima-component-wrapper iframe,
+      .anima-listeners-active,
+      .anima-listeners-active * {
+        pointer-events: auto;
+      }
+
+      .anima-hidden,
+      .anima-hidden * {
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .anima-smart-layers-pointers,
+      .anima-smart-layers-pointers * {
+        pointer-events: auto;
+        visibility: visible;
+      }
+
+      .anima-component-wrapper.anima-not-ready,
+      .anima-component-wrapper.anima-not-ready * {
+        visibility: hidden !important;
+      }
+
+      .anima-listeners-active-click,
+      .anima-listeners-active-click * {
+        cursor: pointer;
+      }
+    </style>
+    
+  </head>
+  <body style="margin: 0; background: rgba(255, 255, 255, 1)">
+    <input type="hidden" id="anPageName" name="page" value="landing-page-v4" />
+    <div class="anima-container-center-horizontal">
+      <div class="landing-page-v4 anima-screen">
+        <img class="hero-C61RwL" src="web/img/hero@1x.svg" alt="windmills" />
+        <div class="microsoft--ems-292182-C61RwL segoeui-regular-normal-white-18px border-class-1">
+          <a href="http://aka.ms/as" class="whiteLink">Microsoft Autonomous Systems</a>
+        </div>
+        <div class="get-starte-ors-292183-C61RwL border-class-1">Get started with Bonsai accelerators</div>
+        <div class="frame-3-C61RwL">
+          <div class="solution-a-iew-292185-FY3HhL segoeui-regular-normal-white-18px border-class-1">
+            <a href="#" class="whiteLink">Solution accelerator overview</a>
+          </div>
+          <div class="x-292186-FY3HhL border-class-1"></div>
+        </div>
+        <div class="bonsai-acc-ans-292187-C61RwL border-class-1">
+          Bonsai accelerators provide everything needed to kickstart industrial AI solutions
+          including&nbsp;&nbsp;development resources, intergrated simulators, and customizable machine teaching plans.
+        </div>
+        <img class="line-11-C61RwL" src="web/img/line-11@2x.svg" />
+        <img class="line-12-C61RwL" src="web/img/line-11@2x.svg" />
+        <img class="mask-group-C61RwL" src="web/img/mask-group-2@1x.png" alt="grass and dirt fields"/>
+        <img class="rectangle-13-C61RwL" src="web/img/rectangle-13@1x.svg" />
+        <div class="how-do-sol-ork-292202-C61RwL border-class-1">How do Solution Accelerators work?</div>
+        <img class="ellipse-9-C61RwL" src="web/img/ellipse-9@2x.svg" />
+        <img class="ellipse-3-C61RwL" src="web/img/ellipse-3@2x.svg" />
+        <div class="provision--ace-292207-C61RwL segoeui-regular-normal-white-20px border-class-1">
+          Provision solution accelator workspace
+        </div>
+        <img class="ellipse-9-VMr6Om" src="web/img/ellipse-9@2x.svg" />
+        <img class="ellipse-3-VMr6Om" src="web/img/ellipse-3@2x.svg" />
+        <div class="review-mac-lan-292211-C61RwL segoeui-regular-normal-white-20px border-class-1">
+          Review machine teaching plan
+        </div>
+        <img class="ellipse-9-mzXdH9" src="web/img/ellipse-9@2x.svg" />
+        <img class="ellipse-3-mzXdH9" src="web/img/ellipse-3@2x.svg" />
+        <div class="assess-tra-ain-292215-C61RwL segoeui-regular-normal-white-20px border-class-1">
+          Assess trained Bonsai brain
+        </div>
+        <img class="ellipse-9-QxM5SU" src="web/img/ellipse-9@2x.svg" />
+        <img class="ellipse-3-QxM5SU" src="web/img/ellipse-3@2x.svg" />
+        <div class="explore-si-del-292219-C61RwL segoeui-regular-normal-white-20px border-class-1">
+          Explore<br />simulation model
+        </div>
+        <img class="ellipse-9-2P4qUJ" src="web/img/ellipse-9@2x.svg" />
+        <img class="ellipse-3-2P4qUJ" src="web/img/ellipse-3@2x.svg" />
+        <div class="train-bons-ain-292223-C61RwL segoeui-regular-normal-white-20px border-class-1">
+          Train Bonsai brain
+        </div>
+        <div class="frame-4-C61RwL"></div>
+        <img class="ellipse-9-qr8e7q" src="web/img/ellipse-9@2x.svg" />
+        <img class="ellipse-3-qr8e7q" src="web/img/ellipse-3@2x.svg" />
+        <div class="export-bon-ons-323191-C61RwL segoeui-regular-normal-white-20px border-class-1">
+          Export Bonsai brain &amp; explore predictions
+        </div>
+        <img class="line-1-C61RwL" src="web/img/line-1@2x.png" />
+        <img class="vector-1-C61RwL" src="web/img/vector-1@2x.svg" />
+        <img class="ellipse-10-C61RwL" src="web/img/ellipse-10@2x.svg" />
+        <img class="line-1-VMr6Om" src="web/img/line-1@2x.png" />
+        <img class="vector-1-VMr6Om" src="web/img/vector-1@2x.svg" />
+        <img class="ellipse-10-VMr6Om" src="web/img/ellipse-10@2x.svg" />
+        <img class="line-1-mzXdH9" src="web/img/line-1@2x.png" />
+        <img class="vector-1-mzXdH9" src="web/img/vector-1@2x.svg" />
+        <img class="ellipse-10-mzXdH9" src="web/img/ellipse-10@2x.svg" />
+        <img class="line-1-QxM5SU" src="web/img/line-1-3@2x.png" />
+        <img class="vector-1-QxM5SU" src="web/img/vector-1-3@2x.svg" />
+        <img class="ellipse-10-QxM5SU" src="web/img/ellipse-10-3@2x.svg" />
+        <img class="line-1-2P4qUJ" src="web/img/line-1-3@2x.png" />
+        <img class="vector-1-2P4qUJ" src="web/img/vector-1-3@2x.svg" />
+        <img class="ellipse-10-2P4qUJ" src="web/img/ellipse-10-3@2x.svg" />
+        <div class="project-bo-ors-292249-C61RwL segoeui-regular-normal-white-18px border-class-1">
+          Project Bonsai Solution Accelerators
+        </div>
+        <div class="bonsai-log-rk-white-1-C61RwL"><img class="group-yRwlMo" src="web/img/group@2x.svg" /></div>
+        <div class="rectangle-15-C61RwL"></div>
+        <div class="help-section-C61RwL">
+          <div class="use-ai-to--ety-292189-hVtwVJ segoeui-regular-normal-gravel-16px border-class-1">
+            Use AI to enforce product consistency and quality. Improve your process efficiency while ensuring regulatory
+            compliance and safety.
+          </div>
+          <div class="coming-soon-292190-hVtwVJ segoeui-regular-normal-gravel-16px border-class-1">Coming soon</div>
+        </div>
+        <div class="chemical-p-ion-292191-C61RwL segoeui-semi-normal-gravel-22px border-class-1">
+          Chemical process optimzation
+        </div>
+        <img class="chemical-C61RwL" src="web/img/chemical@2x.svg" alt="beaker" />
+        <div class="help-section-VMr6Om">
+          <div class="building-e-ent-292197-XUVN7C segoeui-semi-normal-gravel-22px border-class-1">
+            Building energy management
+          </div>
+          <div class="use-ai-to--ort-292195-XUVN7C segoeui-regular-normal-gravel-16px border-class-1">
+            Use AI to control smart infrastructure. Minimize your energy use while maximizing occupant comfort.
+          </div>
+          <div class="coming-soon-292196-XUVN7C segoeui-regular-normal-gravel-16px border-class-1">Coming soon</div>
+        </div>
+        <img class="energy-C61RwL" src="web/img/energy@2x.svg" alt="lightning bolt" />
+        <div class="help-section-mzXdH9">
+          <div class="logistics--ion-292286-1fL28K segoeui-semi-normal-gravel-22px border-class-1">
+            Logistics and supply chain optimization
+          </div>
+          <div class="use-ai-to--and-292284-1fL28K segoeui-regular-normal-gravel-16px border-class-1">
+            Use AI to improve logistics efficiency and supply chain coordination. Boost your manufacturing productivity
+            and effectively scale with demand.
+          </div>
+          <div class="learn-more-292285-1fL28K segoeui-regular-normal-indigo-16px border-class-1"><a href="#" class="indigoLink">Learn more &gt;</a></div>
+        </div>
+        <img class="logistics-C61RwL" src="web/img/logistics@2x.svg" alt="delivery truck" />
+        <div class="have-quest-red-292293-C61RwL border-class-1">
+          Have questions about Project Bonsai, solution accelerators, or Autonomous Systems at Microsoft? We got you
+          covered!
+        </div>
+        <img class="line-9-C61RwL" src="web/img/line-9@2x.svg" />
+        <img class="line-10-C61RwL" src="web/img/line-9@2x.svg" />
+        <div class="rectangle-21-C61RwL"></div>
+        <div class="privacy-an-ies-292298-C61RwL segoeui-regular-normal-astronaut-18px border-class-1">
+          <a href="https://go.microsoft.com/fwlink/?LinkId=521839" class="astronautLink">Privacy and cookies</a>
+        </div>
+        <div class="terms-of-use-292299-C61RwL segoeui-regular-normal-astronaut-18px border-class-1">
+          <a href="https://docs.microsoft.com/en-us/legal/termsofuse" class="astronautLink">Terms of use</a>
+        </div>
+        <div class="trademarks-292300-C61RwL segoeui-regular-normal-astronaut-18px border-class-1">
+          <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" class="astronautLink">Trademarks</a>
+        </div>
+        <div class="x-microsoft-020-292301-C61RwL segoeui-regular-normal-astronaut-18px border-class-1">
+          © Microsoft 2020
+        </div>
+        <div class="join-the-b-ces-323185-C61RwL segoeui-regular-normal-gravel-16px border-class-1">
+          Join the Bonsai forums to ask questions, provide feedback, and share your experiences.
+        </div>
+        <div class="visit-our--ums-323186-C61RwL segoeui-regular-normal-indigo-16px border-class-1">
+          <a href="https://techcommunity.microsoft.com/t5/project-bonsai/ct-p/ProjectBonsai" class="indigoLink">Visit our forums &gt;</a>
+        </div>
+        <div class="community--ums-323187-C61RwL segoeui-semi-normal-gravel-22px border-class-1">Community forums</div>
+        <img class="forums-C61RwL" src="web/img/forums@2x.svg" alt="chat boxes" />
+        <div class="explore-do-ors-323170-C61RwL segoeui-regular-normal-gravel-16px border-class-1">
+          Explore documentation for Bonsai solution accelerators.
+        </div>
+        <div class="visit-our--ums-323171-C61RwL segoeui-regular-normal-indigo-16px border-class-1">
+          <a href="https://docs.microsoft.com/en-us/bonsai/" class="indigoLink">Visit our docs &gt;</a>
+        </div>
+        <div class="get-started-323172-C61RwL segoeui-semi-normal-gravel-22px border-class-1">Get started</div>
+        <img class="documentation-C61RwL" src="web/img/documentation@2x.svg" alt="purple book" />
+        <div class="learn-how--ion-323174-C61RwL segoeui-regular-normal-gravel-16px border-class-1">
+          Learn how Bonsai can help optimize your industrial contol systems with AI-powered automation.
+        </div>
+        <div class="contact-us-323175-C61RwL segoeui-regular-normal-indigo-16px border-class-1">
+          <a href="https://autonomoussystems.microsoft.com/welcome/" class="indigoLink">Contact us &gt;</a>
+        </div>
+        <div class="connect-wi--us-323176-C61RwL segoeui-semi-normal-gravel-22px border-class-1">Connect with us</div>
+        <img class="contact-C61RwL" src="web/img/contact@2x.svg" alt="cartoon person wearing headphones" />
+      </div>
+    </div>
+  </body>
+</html>
