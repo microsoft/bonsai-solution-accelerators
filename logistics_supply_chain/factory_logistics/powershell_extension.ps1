@@ -114,8 +114,8 @@ $log += "Downloading AnyLogic environment configuration" + $nl
 
 #download the startup script to C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/logger.ps1","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\logger.ps1")
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/Microsoft.ApplicationInsights.dll","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\Microsoft.ApplicationInsights.dll")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/logger.ps1","C:\StartUp\logger.ps1")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/Microsoft.ApplicationInsights.dll","C:\StartUp\Microsoft.ApplicationInsights.dll")
 
 $log += "Downloading startup" + $nl
 

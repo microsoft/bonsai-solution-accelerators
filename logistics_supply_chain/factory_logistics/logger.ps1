@@ -1,6 +1,6 @@
 $eventText = $args[0]
 
-$AppInsightsDll = Convert-Path .\Microsoft.ApplicationInsights.dll
+$AppInsightsDll = "C:\startup\Microsoft.ApplicationInsights.dll"
 Add-Type -Path $AppInsightsDll
 
 $client=New-Object Microsoft.ApplicationInsights.TelemetryClient 
