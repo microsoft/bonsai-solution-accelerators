@@ -1,14 +1,14 @@
-# Project
+# Bonsai Solution Accelerators
+Bonsai accelerators provide everything needed to kickstart industrial AI solutions including  development resources, intergrated simulators, and customizable machine teaching plans.
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+## How do Solution Accelerators work?
+- Provision solution accelator workspace
+- Explore simulation model
+- Review machine teaching plan
+- Train Bonsai brain
+- Assess trained Bonsai brain
+- Export Bonsai brain & explore predictions
 
-As the maintainer of this project, please make a few updates:
-
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
 
 ## Contributing
 
