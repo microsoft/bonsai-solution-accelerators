@@ -11,7 +11,7 @@
         }
     },
     "variables": {
-        "fullWorkspaceName": "[concat(parameters('name'), '.acc3.bons.ai')]"
+        "fullWorkspaceName": "[concat(parameters('name'), '_acc3_bons_ai')]"
     },
     "resources": [
     {
