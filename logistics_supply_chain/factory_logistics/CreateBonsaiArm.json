@@ -10,11 +10,8 @@
             "allowedValues": ["westus2", "westus"]
         }
     },
-    "variables": {
-        "fullWorkspaceName": "[concat(parameters('name'), '_acc3_bons_ai')]"
-    },
     "resources": [
-    {
+        {
             "type": "Microsoft.AutonomousSystems/workspaces",
             "apiVersion": "2020-05-01-preview",
             "name": "[parameters('name')]",
