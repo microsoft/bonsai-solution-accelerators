@@ -8,7 +8,8 @@ if [%1]==[] (
     SET mode=%1
 )
 
-echo %mode% mode
+echo Welcome to the Project Bonsai Factory Logistics Accelerator.
+echo This window will close once the accelerator is configured.
 
 set startlog=C:\startup\startlog.txt
 
@@ -54,6 +55,7 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
        
        IF %mode% == startup (
           pip install bonsai-cli
+          powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installCli
 
            echo. 
            echo. 
@@ -73,14 +75,14 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
        )
        
        REM create the user's brain
-       echo %date% - %time% - Running bonsai brain create -n AnyLogic-ABCA >> %startlog%
+       echo %date% - %time% - Running bonsai brain create -n "Factory Logistics SA - ABCA" >> %startlog%
        powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrain
-       bonsai brain create -n AnyLogic-ABCA 
+       bonsai brain create -n "Factory Logistics SA - ABCA"
 
        REM update the inkling for the brain
-       echo %date% - %time% - Running bonsai brain version update-inkling --name AnyLogic-ABCA --version 1 --file="./abca.ink" >> %startlog%
+       echo %date% - %time% - Running bonsai brain version update-inkling --name "Factory Logistics SA - ABCA" --version 1 --file="./abca.ink" >> %startlog%
        powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
-       bonsai brain version update-inkling --name AnyLogic-ABCA --version 1 --file="./abca.ink" 
+       bonsai brain version update-inkling --name "Factory Logistics SA - ABCA" --version 1 --file="./abca.ink" 
 
        IF %mode% == startup (
            echo. 
@@ -119,9 +121,9 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
 
        REM now add the sim package for the user
        REM set url=https://%BONSAI_ACR%.azurecr.io/anylogic-abca:v1 %ImageName% 
-       echo %date% - %time% - Running bonsai simulator package add -n "ABCA" -u %BONSAI_ACR%.azurecr.io/anylogic-abca:v1 -i 25 -r 1.0 -m 1.0 -p Linux --max-instance-count 50 >> %startlog%
+       echo %date% - %time% - Running bonsai simulator package add -n "Factory Logistics - sim" -u %BONSAI_ACR%.azurecr.io/anylogic-abca:v1 -i 25 -r 1.0 -m 1.0 -p Linux --max-instance-count 50 >> %startlog%
        powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 addSimPackage
-       bonsai simulator package add -n "ABCA" -u %BONSAI_ACR%.azurecr.io/anylogic-abca:v1 -i 25 -r 1.0 -m 1.0 -p Linux --max-instance-count 50 
+       bonsai simulator package add -n "Factory Logistics - sim" -u %BONSAI_ACR%.azurecr.io/anylogic-abca:v1 -i 25 -r 1.0 -m 1.0 -p Linux --max-instance-count 50 
 
      )     
 
