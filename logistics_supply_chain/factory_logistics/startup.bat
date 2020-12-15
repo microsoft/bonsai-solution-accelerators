@@ -69,8 +69,8 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
        
 
            REM configure the user's workspace with Bonsai. This will prompt for a device login and needs to be interactive
-           echo %date% - %time% - Running bonsai configure --workspace-id %BONSAI_WORKSPACE% >> %startlog%
-           bonsai configure --workspace-id %BONSAI_WORKSPACE% 
+           echo %date% - %time% - Running bonsai configure --workspace-id %BONSAI_WORKSPACE% --tenant-id %BONSAI_TENANT% >> %startlog%
+           bonsai configure --workspace-id %BONSAI_WORKSPACE% --tenant-id %BONSAI_TENANT%
            powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 configureWorkspace
        )
        
@@ -137,9 +137,9 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 openBonsai
      cmd /c start msedge https://preview.bons.ai/
      
-     echo %date% - %time% - Opening https://github.com/microsoft/bonsai-solution-accelerators/blob/main/logistics_supply_chain/factory_logistics/getting_started_mfg.md >> %startlog%
+     echo %date% - %time% - Opening https://aka.ms/bsa-docs >> %startlog%
      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 openWalkthrough
-     cmd /c start msedge https://github.com/microsoft/bonsai-solution-accelerators/blob/main/logistics_supply_chain/factory_logistics/getting_started_mfg.md
+     cmd /c start msedge https://aka.ms/bsa-docs
 
      REM install the inkling extension for VS Code
      echo.

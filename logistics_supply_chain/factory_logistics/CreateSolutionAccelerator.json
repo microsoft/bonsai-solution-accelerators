@@ -86,6 +86,9 @@
                     },
                     "bonsaiContainerRegistry": {
                         "value": "[reference('createBonsai').outputs.bonsaiAcr.value]"
+                    },
+                     "bonsaiTenantId": {
+                        "value": "[reference('createBonsai').outputs.tenantId.value]"
                     }
                 }
             }

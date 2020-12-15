@@ -84,11 +84,13 @@ $bonsai_subscription = $args[0]
 $bonsai_rg = $args[1]
 $bonsai_workspace = $args[2]
 $bonsai_container_registry = $args[3]
+$bonsai_tenant = $args[4]
 
 setx /m BONSAI_SUBSCRIPTION $bonsai_subscription
 setx /m BONSAI_RG $bonsai_rg
 setx /m BONSAI_WORKSPACE $bonsai_workspace
 setx /m BONSAI_ACR $bonsai_container_registry
+setx /m BONSAI_TENANT $bonsai_tenant
 
 $log += "Downloading AnyLogic" + $nl
 
