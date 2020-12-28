@@ -99,7 +99,9 @@
 						"defaultValue": "BonsaiUser",
 						"toolTip": "The username for the machine is BonsaiUser. This cannot be changed.",
 						"constraints": {
-							"required": true
+							"required": true,
+							"regex": "^(BonsaiUser)$",
+							"validationMessage": "Only `BonsaiUser` is allowed."
 						},
 						"visible": true
 					},

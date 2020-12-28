@@ -17,6 +17,10 @@
         "bonsaiContainerRegistry":
         {
             "type": "string"
+        },
+        "bonsaiTenantId":
+        {
+            "type": "string"
         }
     },
     "variables": {
@@ -39,7 +43,8 @@
         "virtualMachineSize": "Standard_D2_v4", 
         "patchMode": "AutomaticByOS",
         "workspaceId": "[parameters('bonsaiWorkspaceId')]",
-        "bonsaiAcr": "[parameters('bonsaiContainerRegistry')]"
+        "bonsaiAcr": "[parameters('bonsaiContainerRegistry')]",
+        "tenantId": "[parameters('bonsaiTenantId')]"
     },
     "resources": [
          {
@@ -249,7 +254,7 @@
                     "fileUris": [
                     "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/powershell_extension.ps1"
                     ],
-                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File powershell_extension.ps1 ', subscription().subscriptionId, ' ', resourceGroup().name ,' ', variables('workspaceId'), ' ', variables('bonsaiAcr'))]"
+                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File powershell_extension.ps1 ', subscription().subscriptionId, ' ', resourceGroup().name ,' ', variables('workspaceId'), ' ', variables('bonsaiAcr'), ' ', variables('tenantId'))]"
                 }
             }
             }

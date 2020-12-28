@@ -34,7 +34,7 @@
         "createBonsaiResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/CreateBonsaiArm.json",
         "createVmResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/CreateWindowsVirtualMachineWithExtensionB.json",
         "adminUserName": "BonsaiUser",
-        "bonsaiWorkspaceName": "[parameters('bonsaiWorkspaceName')]"
+        "bonsaiWorkspaceName": "[concat(parameters('bonsaiWorkspaceName'),'.acc3.bons.ai')]"
     },
     "resources": [
         {
@@ -86,6 +86,9 @@
                     },
                     "bonsaiContainerRegistry": {
                         "value": "[reference('createBonsai').outputs.bonsaiAcr.value]"
+                    },
+                     "bonsaiTenantId": {
+                        "value": "[reference('createBonsai').outputs.tenantId.value]"
                     }
                 }
             }

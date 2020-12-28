@@ -84,11 +84,13 @@ $bonsai_subscription = $args[0]
 $bonsai_rg = $args[1]
 $bonsai_workspace = $args[2]
 $bonsai_container_registry = $args[3]
+$bonsai_tenant = $args[4]
 
 setx /m BONSAI_SUBSCRIPTION $bonsai_subscription
 setx /m BONSAI_RG $bonsai_rg
 setx /m BONSAI_WORKSPACE $bonsai_workspace
 setx /m BONSAI_ACR $bonsai_container_registry
+setx /m BONSAI_TENANT $bonsai_tenant
 
 $log += "Downloading AnyLogic" + $nl
 
@@ -114,6 +116,8 @@ $log += "Downloading AnyLogic environment configuration" + $nl
 
 #download the startup script to C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/logger.ps1","C:\StartUp\logger.ps1")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/Microsoft.ApplicationInsights.dll","C:\StartUp\Microsoft.ApplicationInsights.dll")
 
 $log += "Downloading startup" + $nl
 

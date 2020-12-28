@@ -30,6 +30,10 @@
             "bonsaiAcr": {
                 "value": "[substring(reference(parameters('name')).containerRegistry, add(lastIndexOf(reference(parameters('name')).containerRegistry, '/'),1),sub(sub(length(reference(parameters('name')).containerRegistry), lastIndexOf(reference(parameters('name')).containerRegistry, '/')),1))]",
                 "type": "string"
+            },
+            "tenantId": {
+                "value": "[subscription().tenantId]",
+                "type": "string"
             }
         }
 }
