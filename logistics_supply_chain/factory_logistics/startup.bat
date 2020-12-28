@@ -9,7 +9,9 @@ if [%1]==[] (
 )
 
 echo Welcome to the Project Bonsai Factory Logistics Accelerator.
+echo.
 echo This window will close once the accelerator is configured.
+echo.
 
 set startlog=C:\startup\startlog.txt
 
