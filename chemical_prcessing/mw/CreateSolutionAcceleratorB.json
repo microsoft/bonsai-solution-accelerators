@@ -7,14 +7,14 @@
         } ,
         "bonsaiWorkspaceName": {
             "type": "string",
-            "defaultValue": "emgmtWorkspace",
+            "defaultValue": "chemWorkspace",
             "metadata": {
                 "description": "The name of the Bonsai workspace to create."
             }
         },
         "virtualMachineName": {
             "type": "string",
-            "defaultValue": "bonsaiSaVm4",
+            "defaultValue": "bonsaiSaVm2",
             "maxLength": 15,
             "metadata" : { 
                 "description": "The name of the virual machine that is created for the solution accelerator."
@@ -34,8 +34,8 @@
         "createBonsaiResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/CreateBonsaiArm.json",
         "createVmResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/CreateWindowsVirtualMachineWithExtensionB.json",
         "adminUserName": "BonsaiUser",
-        "bonsaiWorkspaceName": "[concat(parameters('bonsaiWorkspaceName'),'.acc4.bons.ai')]",
-        "powershell_extension": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/energy_management/mw/powershell_extension.ps1"
+        "bonsaiWorkspaceName": "[concat(parameters('bonsaiWorkspaceName'),'.acc2.bons.ai')]",
+        "powershell_extension": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/chemical_processing/mw/powershell_extension.ps1"
 
     },
     "resources": [

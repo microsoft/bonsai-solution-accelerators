@@ -1,5 +1,5 @@
 # Project Bonsai Solution Accelerators
-Bonsai accelerators provide everything needed to kickstart industrial AI solutions including  development resources, intergrated simulators, and customizable machine teaching plans.
+Project Bonsai accelerators provide everything needed to kickstart industrial AI solutions including  development resources, intergrated simulators, and customizable machine teaching plans.
 
 ## How do Solution Accelerators work?
 - Provision solution accelator workspace

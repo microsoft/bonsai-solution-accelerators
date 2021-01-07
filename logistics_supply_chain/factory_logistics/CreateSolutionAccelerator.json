@@ -14,7 +14,7 @@
         },
         "virtualMachineName": {
             "type": "string",
-            "defaultValue": "bonsaiSaVm",
+            "defaultValue": "bonsaiSaVm3",
             "maxLength": 15,
             "metadata" : { 
                 "description": "The name of the virual machine that is created for the solution accelerator."
