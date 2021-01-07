@@ -201,7 +201,9 @@
                 "typeHandlerVersion": "1.7",
                 "autoUpgradeMinorVersion":true,
                 "settings": {
-                    "fileUris": "[parameters('script_extension_file')]",
+                    "fileUris": [
+                        "[parameters('script_extension_file')]"
+                    ],
                     "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File powershell_extension.ps1 ', subscription().subscriptionId, ' ', resourceGroup().name ,' ', variables('workspaceId'), ' ', variables('bonsaiAcr'), ' ', variables('tenantId'))]"
                 }
             }
