@@ -77,14 +77,14 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
        )
        
        REM create the user's brain
-       echo %date% - %time% - Running bonsai brain create -n "Factory Logistics SA - ABCA" >> %startlog%
+       echo %date% - %time% - Running bonsai brain create -n "Factory_Logistics_ABCA" >> %startlog%
        powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrain
-       bonsai brain create -n "Factory Logistics SA - ABCA"
+       bonsai brain create -n "Factory_Logistics_ABCA"
 
        REM update the inkling for the brain
-       echo %date% - %time% - Running bonsai brain version update-inkling --name "Factory Logistics SA - ABCA" --version 1 --file="./abca.ink" >> %startlog%
+       echo %date% - %time% - Running bonsai brain version update-inkling --name "Factory_Logistics_ABCA" --version 1 --file="./abca.ink" >> %startlog%
        powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
-       bonsai brain version update-inkling --name "Factory Logistics SA - ABCA" --version 1 --file="./abca.ink" 
+       bonsai brain version update-inkling --name "Factory_Logistics_ABCA" --version 1 --file="./abca.ink" 
 
        IF %mode% == startup (
            echo. 

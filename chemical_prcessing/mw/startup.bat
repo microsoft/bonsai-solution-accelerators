@@ -8,7 +8,7 @@ if [%1]==[] (
     SET mode=%1
 )
 
-echo Welcome to the Project Bonsai Energy Management Accelerator.
+echo Welcome to the Project Bonsai Chemical Processing Accelerator.
 echo.
 echo This window will close once the accelerator is configured.
 echo.
@@ -74,14 +74,14 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    REM THIS SECTION MAY MOVE TO ELSEWHERE IN THE STACK
 
    REM create the user's brain
-   echo %date% - %time% - Running bonsai brain create -n "Chemical Processing - Simulink" >> %startlog%
+   echo %date% - %time% - Running bonsai brain create -n "Chemical_Processing_Simulink" >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrain
-   bonsai brain create -n "Chemical Processing - Simulink" 
+   bonsai brain create -n "Chemical_Processing_Simulink" 
 
    REM update the inkling for the brain
-   echo %date% - %time% - Running bonsai brain version update-inkling --name "Chemical Processing - Simulink"  --version 1 --file="./machine_teacher.ink" >> %startlog%
+   echo %date% - %time% - Running bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
-   bonsai brain version update-inkling --name "Chemical Processing - Simulink"  --version 1 --file="./machine_teacher.ink" 
+   bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" 
 
    IF %mode% == startup (
       echo. 
