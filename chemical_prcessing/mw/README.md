@@ -1,4 +1,4 @@
-# Energy Management
+# Chemical Processing
 
 This will deploy a solution accelerator using a UI by clicking the button below:
 
