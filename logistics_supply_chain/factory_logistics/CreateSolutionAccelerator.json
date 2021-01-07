@@ -31,10 +31,11 @@
     },
     "variables": {
       
-        "createBonsaiResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/CreateBonsaiArm.json",
-        "createVmResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/CreateWindowsVirtualMachineWithExtension.json",
+        "createBonsaiResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/CreateBonsaiArm.json",
+        "createVmResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/CreateWindowsVirtualMachineWithExtension.json",
         "adminUserName": "BonsaiUser",
-        "bonsaiWorkspaceName": "[parameters('bonsaiWorkspaceName')]"
+        "bonsaiWorkspaceName": "[concat(parameters('bonsaiWorkspaceName'),'.acc3.bons.ai')]",
+        "powershell_extension": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/powershell_extension.ps1"
     },
     "resources": [
         {
@@ -89,6 +90,9 @@
                     },
                      "bonsaiTenantId": {
                         "value": "[reference('createBonsai').outputs.tenantId.value]"
+                    },
+                    "script_extension_file": {
+                        "value": "[variables('powershell_extension')]"
                     }
                 }
             }

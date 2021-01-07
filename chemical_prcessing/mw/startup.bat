@@ -39,11 +39,11 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    REM clone the latest to the directory
    echo %date% - %time% - Cloning https://github.com/microsoft/bonsai-simulink >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 clone_bonsai-simulink
-   cmd /c git clone -b jill_journeyman/bem https://github.com/microsoft/bonsai-simulink
+   cmd /c git clone -b juan_journeyman/cpo https://github.com/microsoft/bonsai-simulink
 
    REM go to the primary example directory
-   echo %date% - %time% - Moving to /mathworks-examples/bonsai-simulink/samples/cartpole >> %startlog%
-   cd /mathworks-examples/bonsai-simulink/samples/building_energy_management
+   echo %date% - %time% - Moving to /mathworks-examples/bonsai-simulink/samples/chemical-process-optimization >> %startlog%
+   cd /mathworks-examples/bonsai-simulink/samples/chemical-process-optimization
    
 
    REM install the Bonsai CLI
@@ -74,14 +74,14 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    REM THIS SECTION MAY MOVE TO ELSEWHERE IN THE STACK
 
    REM create the user's brain
-   echo %date% - %time% - Running bonsai brain create -n "Energy Management - Simulink"  >> %startlog%
+   echo %date% - %time% - Running bonsai brain create -n "Chemical Processing - Simulink" >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrain
-   bonsai brain create -n "Energy Management - Simulink" 
+   bonsai brain create -n "Chemical Processing - Simulink" 
 
    REM update the inkling for the brain
-   echo %date% - %time% - Running bonsai brain version update-inkling --name "Energy Management - Simulink"  --version 1 --file="./buildingEnergyManagement.ink" >> %startlog%
+   echo %date% - %time% - Running bonsai brain version update-inkling --name "Chemical Processing - Simulink"  --version 1 --file="./machine_teacher.ink" >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
-   bonsai brain version update-inkling --name "Energy Management - Cartpole"  --version 1 --file="./buildingEnergyManagement.ink" 
+   bonsai brain version update-inkling --name "Chemical Processing - Simulink"  --version 1 --file="./machine_teacher.ink" 
 
    IF %mode% == startup (
       echo. 

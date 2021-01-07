@@ -17,7 +17,14 @@
         "bonsaiContainerRegistry":
         {
             "type": "string"
-        }
+        },
+        "bonsaiTenantId":
+        {
+            "type": "string"
+        },
+        "script_extension_file": {
+            "type": "string"
+        } 
     },
     "variables": {
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
@@ -39,7 +46,8 @@
         "virtualMachineSize": "Standard_D2_v4", 
         "patchMode": "AutomaticByOS",
         "workspaceId": "[parameters('bonsaiWorkspaceId')]",
-        "bonsaiAcr": "[parameters('bonsaiContainerRegistry')]"
+        "bonsaiAcr": "[parameters('bonsaiContainerRegistry')]",
+        "tenantId": "[parameters('bonsaiTenantId')]"
     },
     "resources": [
          {
@@ -235,7 +243,7 @@
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "apiVersion": "2019-12-01",
-            "name": "[concat(variables('virtualMachineNameNoSpace'),'/', 'InstallSA')]",
+            "name": "[concat(variables('virtualMachineNameNoSpace'),'/', 'InstallAnyLogicSA')]",
             "location": "[variables('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/',variables('virtualMachineNameNoSpace'))]"
@@ -246,10 +254,8 @@
                 "typeHandlerVersion": "1.7",
                 "autoUpgradeMinorVersion":true,
                 "settings": {
-                    "fileUris": [
-                    "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/energy_management/mw/powershell_extension.ps1"
-                    ],
-                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File powershell_extension.ps1 ', subscription().subscriptionId, ' ', resourceGroup().name ,' ', variables('workspaceId'), ' ', variables('bonsaiAcr'))]"
+                    "fileUris": "[parameters('script_extension_file')]",
+                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File powershell_extension.ps1 ', subscription().subscriptionId, ' ', resourceGroup().name ,' ', variables('workspaceId'), ' ', variables('bonsaiAcr'), ' ', variables('tenantId'))]"
                 }
             }
             }
