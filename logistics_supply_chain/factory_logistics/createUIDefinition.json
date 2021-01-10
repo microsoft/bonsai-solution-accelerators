@@ -125,6 +125,50 @@
                         "visible": true
                     }
                 ]
+            },
+			{
+                "name": "contactInfo",
+                "label": "AnyLogic Agreement",
+                "elements": [
+                    {
+						"name": "infoBoxAL",
+						"type": "Microsoft.Common.InfoBox",
+						"visible": true,
+						"options": {
+							"icon": "Info",
+							"text": "This solution accelerator makes use of the AnyLogic PLE software for connecting AnyLogic models to the Project Bonsai platform. By filling in additional details below, you agree to be contacted by AnyLogic. This data is not stored on your virtual machine or by Microsoft.",
+							"uri": "https://www.anylogic.com/downloads/personal-learning-edition-download/"
+						}
+					},
+					{
+						"name": "userFullName",
+						"type": "Microsoft.Common.TextBox",
+						"label": "Full Name",
+						"placeholder": "",
+						"defaultValue": "",
+						"toolTip": "Use only allowed characters",
+						"constraints": {
+							"required": false,
+							"regex": "^[a-z0-9A-Z]{1,50}$",
+							"validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-50 characters long."
+						},
+						"visible": true
+					},
+					{
+						"name": "userEmailContact",
+						"type": "Microsoft.Common.TextBox",
+						"label": "Email",
+						"placeholder": "",
+						"defaultValue": "",
+						"toolTip": "The email address for AnyLogic to contact you.",
+						"constraints": {
+							"required": false,
+							"regex": "(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$)",
+							"validationMessage": "Please enter a valid email format."
+						},
+						"visible": true
+					}
+                ]
             }
         ],
         "outputs": {

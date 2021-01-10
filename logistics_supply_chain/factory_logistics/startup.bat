@@ -35,6 +35,8 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
          cmd /c MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
 
          cmd /c copy dockerinstaller.exe %USERPROFILE%\desktop\Install_Docker.exe
+
+         cmd /c copy run_setup_matlab.mlx %USERPROFILE%\desktop\run_setup_matlab.mlx
        )
 
        REM go to the root  example directory 

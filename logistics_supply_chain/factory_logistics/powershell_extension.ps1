@@ -119,6 +119,10 @@ $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-ac
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/logger.ps1","C:\StartUp\logger.ps1")
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/Microsoft.ApplicationInsights.dll","C:\StartUp\Microsoft.ApplicationInsights.dll")
 
+#download the setup script for matlab online
+$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/batchsetup_cp.mlx","run_setup_matlab.mlx")
+
+
 $log += "Downloading startup" + $nl
 
 Write-Host $log

@@ -29,6 +29,8 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
       cmd /c MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
 
       cmd /c copy dockerinstaller.exe %USERPROFILE%\desktop\Install_Docker.exe
+
+      cmd /c copy run_setup_matlab.mlx %USERPROFILE%\desktop\run_setup_matlab.mlx
    )
 
    REM go to the root  example directory 
