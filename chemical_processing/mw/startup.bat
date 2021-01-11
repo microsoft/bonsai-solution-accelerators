@@ -130,8 +130,9 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    REM start the three tabs for the user
 
    echo %date% - %time% - Opening https://matlab.mathworks.com >> %startlog%
-   cmd /c start msedge https://www.mathworks.com/campaigns/products/trials.html
-
+   @REM cmd /c start msedge https://www.mathworks.com/campaigns/products/trials.html
+   cmd /c start msedge https://matlab.mathworks.com
+   
    echo %date% - %time% - Opening https://preview.bons.ai/ >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 openBonsai
    cmd /c start msedge https://preview.bons.ai/
