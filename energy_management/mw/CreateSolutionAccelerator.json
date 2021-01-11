@@ -89,6 +89,9 @@
                     "bonsaiContainerRegistry": {
                         "value": "[reference('createBonsai').outputs.bonsaiAcr.value]"
                     },
+                    "bonsaiTenantId": {
+                        "value": "[reference('createBonsai').outputs.tenantId.value]"
+                    },
                     "script_extension_file": {
                         "value": "[variables('powershell_extension')]"
                     }
