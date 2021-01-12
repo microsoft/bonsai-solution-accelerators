@@ -139,9 +139,9 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 openBonsai
    cmd /c start msedge https://preview.bons.ai/
 
-   echo %date% - %time% - Opening https://github.com/microsoft/bonsai-solution-accelerators/blob/mw/energy_management/mw/getting_started_mfg.md >> %startlog%
+   echo %date% - %time% - Opening https://github.com/microsoft/bonsai-solution-accelerators/blob/mw/chemical_processing/mw/getting_started_mfg.md >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 openWalkthrough
-   cmd /c start msedge https://github.com/microsoft/bonsai-solution-accelerators/blob/mw/energy_management/mw/getting_started_mfg.md
+   cmd /c start msedge https://github.com/microsoft/bonsai-solution-accelerators/blob/mw/chemical_processing/mw/getting_started_mfg.md
 
    REM install the inkling extension for VS Code
    echo.
