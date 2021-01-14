@@ -47,6 +47,7 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    echo %date% - %time% - Moving to /mathworks-examples/bonsai-simulink/samples/chemical-process-optimization >> %startlog%
    cd /mathworks-examples/bonsai-simulink/samples/chemical-process-optimization
    
+   cmd /c powershell.exe -Command Compress-Archive . chemical-process-optimization.zip
 
    REM install the Bonsai CLI
    echo %date% - %time% - Installing Bonsai CLI >> %startlog%

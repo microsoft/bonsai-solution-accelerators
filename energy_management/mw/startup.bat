@@ -47,6 +47,7 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    echo %date% - %time% - Moving to /mathworks-examples/bonsai-simulink/samples/cartpole >> %startlog%
    cd /mathworks-examples/bonsai-simulink/samples/building_energy_management
    
+   cmd /c powershell.exe -Command Compress-Archive . building_energy_management.zip
 
    REM install the Bonsai CLI
    echo %date% - %time% - Installing Bonsai CLI >> %startlog%
