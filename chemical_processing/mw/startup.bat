@@ -85,24 +85,24 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
    bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" 
 
-   IF %mode% == startup (
-      echo. 
-      echo. 
-      echo. 
-      echo.  
-      echo Configuring Azure. You will be prompted for your Azure credentials.
-      echo. 
-      echo. 
-      echo. 
-      echo.  
+   @REM IF %mode% == startup (
+   @REM    echo. 
+   @REM    echo. 
+   @REM    echo. 
+   @REM    echo.  
+   @REM    echo Configuring Azure. You will be prompted for your Azure credentials.
+   @REM    echo. 
+   @REM    echo. 
+   @REM    echo. 
+   @REM    echo.  
    
 
-      REM log the user in to Azure to run the container creation
-      echo %date% - %time% - Running az login >> %startlog%
+   @REM    REM log the user in to Azure to run the container creation
+   @REM    echo %date% - %time% - Running az login >> %startlog%
    
-      cmd /c az login
-      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 azLogin
-   )
+   @REM    cmd /c az login
+   @REM    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 azLogin
+   @REM )
 
    @REM REM make sure the user is on the correct subscription by default
    @REM echo %date% - %time% - az account set --subscription %BONSAI_SUBSCRIPTION% >> %startlog%
