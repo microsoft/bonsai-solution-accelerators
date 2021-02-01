@@ -82,9 +82,9 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    bonsai brain create -n "Energy_Management_Simulink" 
 
    REM update the inkling for the brain
-   echo %date% - %time% - Running bonsai brain version update-inkling --name "Energy_Management_Simulink"  --version 1 --file="./buildingEnergyManagement.ink" >> %startlog%
+   echo %date% - %time% - Running bonsai brain version update-inkling --name "Energy_Management_Simulink"  --version 1 --file="./machine_teacher.ink" >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
-   bonsai brain version update-inkling --name "Energy_Management_Simulink"  --version 1 --file="./buildingEnergyManagement.ink" 
+   bonsai brain version update-inkling --name "Energy_Management_Simulink"  --version 1 --file="./machine_teacher.ink" 
 
    @REM IF %mode% == startup (
    @REM    echo. 
