@@ -12,7 +12,7 @@
 
 ### Existing MATLAB User
 
-You can launch <a href="http://matlab.mathworks.com/">MATLAB Online</a>. 
+1. Launch <a href="http://matlab.mathworks.com/">MATLAB Online</a>. 
 
 ## After Loging In
 
