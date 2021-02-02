@@ -1,12 +1,12 @@
 # Getting Started with your Energy Management Solution Accelerator
 
-<img src="mw.png" alt="MathWorks logo" width="100" height="100"/>
+<img src="mw.png" alt="MathWorks logo" width="150" height="150"/>
 
 ## Getting Started with Bonsai in MATLAB
 
 ### New MATLAB User
 
-1. You can sign up for a <a href="https://www.mathworks.com/mwaccount/">MathWorks account</a>. 
+1. Sign up for a <a href="https://www.mathworks.com/mwaccount/">MathWorks account</a>. 
 2. Sign up for a <a href=" https://www.mathworks.com/campaigns/products/trials.html">MathWorks trial</a>. 
 3. Once you have an account, you can launch <a href="http://matlab.mathworks.com/">MATLAB Online</a>. 
 
