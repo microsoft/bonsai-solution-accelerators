@@ -7,7 +7,7 @@
 ### New MATLAB User
 
 1. Sign up for a <a href="https://www.mathworks.com/mwaccount/">MathWorks account</a>. 
-2. Sign up for a <a href=" https://www.mathworks.com/campaigns/products/trials.html">MathWorks trial</a>. 
+2. Sign up for a <a href="https://www.mathworks.com/campaigns/products/trials.html">MathWorks trial</a>. 
 3. Once you have an account, you can launch <a href="http://matlab.mathworks.com/">MATLAB Online</a>. 
 
 ### Existing MATLAB User
