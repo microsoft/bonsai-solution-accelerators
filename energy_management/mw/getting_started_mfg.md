@@ -1,15 +1,25 @@
 # Getting Started with your Energy Management Solution Accelerator
 
-You will need a MathWorks account. You can sign up for one at https://www.mathworks.com/mwaccount/. 
+<img src="mw.png" alt="MathWorks logo" width="100" height="100"/>
 
-You will need to sign up for a MathWorks trial at https://www.mathworks.com/campaigns/products/trials.html. 
+## Getting Started with Bonsai in MATLAB
 
-Once you have an account, you can launch MATLAB online at http://matlab.mathworks.com/. 
+### New MATLAB User
 
-After logging in, click `Upload` on the Home tab.
+1. You can sign up for a <a href="https://www.mathworks.com/mwaccount/">MathWorks account</a>. 
+2. Sign up for a <a href=" https://www.mathworks.com/campaigns/products/trials.html">MathWorks trial</a>. 
+3. Once you have an account, you can launch <a href="http://matlab.mathworks.com/">MATLAB Online</a>. 
 
-Select `run_setup_matlab.mlx` from your desktop. Click OK.
+### Existing MATLAB User
 
-Double click the `run_setup.matlab.mlx` file in the Current Folder pane to open the Live Script.
+You can launch <a href="http://matlab.mathworks.com/">MATLAB Online</a>. 
+
+## After Loging In
+
+Click `Upload` on the *Home* tab in MATLAB Online.
+
+Select `run_setup_matlab.mlx` from your desktop. Click **OK**.
+
+Double click the `run_setup.matlab.mlx` file in the *Current Folder* pane to open the Live Script.
 
 Click the `Run` button to execute the Live Script and launch the example.
