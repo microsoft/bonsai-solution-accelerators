@@ -47,13 +47,27 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    echo %date% - %time% - Moving to /mathworks-examples/bonsai-simulink/samples/cartpole >> %startlog%
    cd /mathworks-examples/bonsai-simulink/samples/building_energy_management
    
+   REM zip the directory for upload
    cmd /c powershell.exe -Command Compress-Archive . building_energy_management.zip
 
    REM install the Bonsai CLI
    echo %date% - %time% - Installing Bonsai CLI >> %startlog%
    
    IF %mode% == startup (
-      pip install bonsai-cli
+      REM Using the pre-release for the time being
+
+      REM pip install bonsai-cli
+
+      cd /startup
+      cmd /c powershell.exe -Command Expand-Archive -LiteralPath .\bonsaicli2.zip -DestinationPath .
+
+      cd bonsaicli2
+
+      pip install -e .
+      
+      REM now go back to the regularly scheduled program
+      cd /mathworks-examples/bonsai-simulink/samples/building_energy_management
+
       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installCli
 
       echo. 
@@ -123,6 +137,9 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    @REM REM -------------------------------
    @REM REM TODO: Zip up directory or need a dockerfile
    @REM REM -------------------------------
+
+   bonsai simulator package modelfile create -n Energy_Management_MW -f building_energy_management.zip --base-image mathworks-simulink-2020b 
+
 
    @REM REM now add the sim package for the user
    @REM REM set url=https://%BONSAI_ACR%.azurecr.io/mathworks-abca:v1 %ImageName% 
