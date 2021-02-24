@@ -47,8 +47,8 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    echo %date% - %time% - Moving to /mathworks-examples/bonsai-simulink/samples/cartpole >> %startlog%
    cd /mathworks-examples/bonsai-simulink/samples/building_energy_management
    
-   REM zip the directory for upload
-   cmd /c powershell.exe -Command Compress-Archive . building_energy_management.zip
+   REM zip the directory for upload --> The *.* part is important to not create a root folder, since the upload will fail if we do
+   cmd /c powershell.exe -Command Compress-Archive -Path *.* -DestinationPath building_energy_management.zip
 
    REM install the Bonsai CLI
    echo %date% - %time% - Installing Bonsai CLI >> %startlog%
@@ -58,11 +58,13 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
 
       REM pip install bonsai-cli
 
+      REM go back to the startup directory .. and force the expansion
       cd /startup
-      cmd /c powershell.exe -Command Expand-Archive -LiteralPath .\bonsaicli2.zip -DestinationPath .
+      cmd /c powershell.exe -Command Expand-Archive -LiteralPath .\bonsaicli2.zip -DestinationPath . -f
 
       cd bonsaicli2
 
+      REM install locally (PyPi coming soon)
       pip install -e .
       
       REM now go back to the regularly scheduled program
@@ -87,9 +89,7 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 configureWorkspace
    )
    
-   REM ---------------
-   REM THIS SECTION MAY MOVE TO ELSEWHERE IN THE STACK
-
+  
    REM create the user's brain
    echo %date% - %time% - Running bonsai brain create -n "Energy_Management_Simulink"  >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrain
@@ -100,53 +100,10 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
    bonsai brain version update-inkling --name "Energy_Management_Simulink"  --version 1 --file="./machine_teacher.ink" 
 
-   @REM IF %mode% == startup (
-   @REM    echo. 
-   @REM    echo. 
-   @REM    echo. 
-   @REM    echo.  
-   @REM    echo Configuring Azure. You will be prompted for your Azure credentials.
-   @REM    echo. 
-   @REM    echo. 
-   @REM    echo. 
-   @REM    echo.  
-   
-
-   @REM    REM log the user in to Azure to run the container creation
-   @REM    echo %date% - %time% - Running az login >> %startlog%
-   
-   @REM    cmd /c az login
-   @REM    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 azLogin
-   @REM )
-
-   @REM REM make sure the user is on the correct subscription by default
-   @REM echo %date% - %time% - az account set --subscription %BONSAI_SUBSCRIPTION% >> %startlog%
-   @REM powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 setAzSubscription
-   @REM cmd /c az account set --subscription %BONSAI_SUBSCRIPTION% 
-
-   @REM REM the user needs to be authenticated to ACR -- expose token for no docker
-   @REM echo %date% - %time% - az acr login --name %BONSAI_ACR% --expose-token >> %startlog%
-   @REM powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 acrLogin
-   @REM cmd /c az acr login --name %BONSAI_ACR% --expose-token 
-
-   @REM REM build the container image using the dockerfile from the current directory
-   @REM echo %date% - %time% - Running az acr build --registry %BONSAI_ACR% --image simulink-cartpole:v1 . >> %startlog%
-   @REM powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 acrBuild
-   @REM cmd /c az acr build --registry %BONSAI_ACR% --image simulink-cartpole:v1 . 
-
-   @REM REM -------------------------------
-   @REM REM TODO: Zip up directory or need a dockerfile
-   @REM REM -------------------------------
-
+   REM upload the zip file to build a sim from
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackage
    bonsai simulator package modelfile create -n Energy_Management_MW -f building_energy_management.zip --base-image mathworks-simulink-2020b 
-
-
-   @REM REM now add the sim package for the user
-   @REM REM set url=https://%BONSAI_ACR%.azurecr.io/mathworks-abca:v1 %ImageName% 
-   @REM echo %date% - %time% - Running bonsai simulator package add -n "Energy Management - Simulink" -u %BONSAI_ACR%.azurecr.io/simulink-cartpole:v1 -i 25 -r 1.0 -m 1.0 -p Linux --max-instance-count 50 >> %startlog%
-   @REM powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 addSimPackage
-   @REM bonsai simulator package add -n "Energy Management - Simulink" -u %BONSAI_ACR%.azurecr.io/simulink-cartpole:v1 -i 25 -r 1.0 -m 1.0 -p Linux --max-instance-count 50      
-
+ 
    REM start the three tabs for the user
 
    echo %date% - %time% - Opening https://matlab.mathworks.com >> %startlog%
