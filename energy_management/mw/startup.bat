@@ -41,7 +41,7 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    REM clone the latest to the directory
    echo %date% - %time% - Cloning https://github.com/microsoft/bonsai-simulink >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 clone_bonsai-simulink
-   cmd /c git clone -b jill_journeyman/bem https://github.com/microsoft/bonsai-simulink
+   cmd /c git clone https://github.com/microsoft/bonsai-simulink
 
    REM go to the primary example directory
    echo %date% - %time% - Moving to /mathworks-examples/bonsai-simulink/samples/cartpole >> %startlog%
