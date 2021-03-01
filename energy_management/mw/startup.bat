@@ -54,21 +54,8 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    echo %date% - %time% - Installing Bonsai CLI >> %startlog%
    
    IF %mode% == startup (
-      REM Using the pre-release for the time being
 
-      REM pip install bonsai-cli
-
-      REM go back to the startup directory .. and force the expansion
-      cd /startup
-      cmd /c powershell.exe -Command Expand-Archive -LiteralPath .\bonsaicli2.zip -DestinationPath . -f
-
-      cd bonsaicli2
-
-      REM install locally (PyPi coming soon)
-      pip install -e .
-      
-      REM now go back to the regularly scheduled program
-      cd /mathworks-examples/bonsai-simulink/samples/building_energy_management
+      pip install bonsai-cli
 
       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installCli
 
