@@ -80,20 +80,20 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrain
    bonsai brain create -n "Chemical_Processing_Simulink" 
 
-   timeout /t 10
+   bonsai brain show --name "Chemical_Processing_Simulink" 
 
    REM update the inkling for the brain
    echo %date% - %time% - Running bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
    bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" 
 
-   timeout /t 10
+   bonsai brain show --name "Chemical_Processing_Simulink" 
 
    REM upload the zip file to build a sim from
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackage
    bonsai simulator package modelfile create -n Chemical_Process_MW -f chemical-process-optimization.zip --base-image mathworks-simulink-2020b 
 
-   timeout /t 10  
+   bonsai simulator package list
 
    REM start the three tabs for the user
 
