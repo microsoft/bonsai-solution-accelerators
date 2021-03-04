@@ -87,26 +87,6 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
        echo %date% - %time% - Running bonsai brain version update-inkling --name "Factory_Logistics_ABCA" --version 1 --file="./abca.ink" >> %startlog%
        powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
        bonsai brain version update-inkling --name "Factory_Logistics_ABCA" --version 1 --file="./abca.ink" 
-
-       IF %mode% == startup (
-           echo. 
-           echo. 
-           echo. 
-           echo.  
-           echo Configuring Azure. You will be prompted for your Azure credentials.
-           echo. 
-           echo. 
-           echo. 
-           echo.  
-       
-
-           REM log the user in to Azure to run the container creation
-           echo %date% - %time% - Running az login >> %startlog%
-       
-          cmd /c az login
-          powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 azLogin
-       )
-
    
        REM now add the sim package for the user
        REM set url=https://%BONSAI_ACR%.azurecr.io/anylogic-abca:v1 %ImageName% 
@@ -127,7 +107,7 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
      
      echo %date% - %time% - Opening https://aka.ms/bsa-docs >> %startlog%
      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 openWalkthrough
-     cmd /c start msedge https://aka.ms/bsa-docs
+     cmd /c start msedge https://docs.microsoft.com/en-us/autonomous-systems/bonsai-accelerators/guides/run-local-factory-logistics
 
      REM install the inkling extension for VS Code
      echo.
