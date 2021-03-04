@@ -81,15 +81,17 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    echo %date% - %time% - Running bonsai brain create -n "Energy_Management_Simulink"  >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrain
    bonsai brain create -n "Energy_Management_Simulink" 
-
-   timeout /t 10
+   
+   bonsai brain show --name "Energy_Management_Simulink" 
 
    REM update the inkling for the brain
    echo %date% - %time% - Running bonsai brain version update-inkling --name "Energy_Management_Simulink"  --version 1 --file="./machine_teacher.ink" >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
    bonsai brain version update-inkling --name "Energy_Management_Simulink"  --version 1 --file="./machine_teacher.ink" 
 
-   timeout /t 10
+   bonsai brain show --name "Energy_Management_Simulink" 
+
+   bonsai simulator package list
 
    REM upload the zip file to build a sim from
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackage

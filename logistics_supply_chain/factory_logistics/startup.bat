@@ -107,28 +107,12 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
           powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 azLogin
        )
 
-       REM make sure the user is on the correct subscription by default
-       echo %date% - %time% - az account set --subscription %BONSAI_SUBSCRIPTION% >> %startlog%
-       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 setAzSubscription
-       cmd /c az account set --subscription %BONSAI_SUBSCRIPTION% 
-
-       REM the user needs to be authenticated to ACR -- expose token for no docker
-       echo %date% - %time% - az acr login --name %BONSAI_ACR% --expose-token >> %startlog%
-       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 acrLogin
-       cmd /c az acr login --name %BONSAI_ACR% --expose-token 
-
-       REM build the container image using the dockerfile from the current directory
-       REM set ImageName=anylogic-abca:v1 --> doesnt seem to work
-       echo %date% - %time% - Running az acr build --registry %BONSAI_ACR% --image anylogic-abca:v1 . >> %startlog%
-       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 acrBuild
-       cmd /c az acr build --registry %BONSAI_ACR% --image anylogic-abca:v1 . 
-
+   
        REM now add the sim package for the user
        REM set url=https://%BONSAI_ACR%.azurecr.io/anylogic-abca:v1 %ImageName% 
        echo %date% - %time% - Running bonsai simulator package add -n "Factory Logistics - sim" -u %BONSAI_ACR%.azurecr.io/anylogic-abca:v1 -i 25 -r 1.0 -m 1.0 -p Linux --max-instance-count 50 >> %startlog%
        powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 addSimPackage
-       bonsai simulator package add -n "Factory Logistics - sim" -u %BONSAI_ACR%.azurecr.io/anylogic-abca:v1 -i 25 -r 1.0 -m 1.0 -p Linux --max-instance-count 50 
-
+       bonsai simulator package modelfile create -n ABCA -f exported.zip --base-image anylogic-professional-8 
      )     
 
 
