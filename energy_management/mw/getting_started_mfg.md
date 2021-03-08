@@ -12,9 +12,9 @@
 
 ### Existing MATLAB User
 
-1. Launch <a href="http://matlab.mathworks.com/">MATLAB Online</a>. 
+1. Launch <a href="http://matlab.mathworks.com/" target="_blank">MATLAB Online</a>. 
 
-## After Loging In
+## After Logging In
 
 Click `Upload` on the *Home* tab in MATLAB Online.
 

@@ -91,13 +91,11 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
 
    bonsai brain show --name "Energy_Management_Simulink" 
 
-   bonsai simulator package list
-
    REM upload the zip file to build a sim from
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackage
    bonsai simulator package modelfile create -n Energy_Management_MW -f building_energy_management.zip --base-image mathworks-simulink-2020b 
 
-   timeout /t 10
+   bonsai simulator package list
  
    REM start the three tabs for the user
 

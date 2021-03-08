@@ -31,16 +31,16 @@
                         "name": "bonsaiWorkspaceLocation",
                         "type": "Microsoft.Common.OptionsGroup",
                         "label": "Bonsai Workspace Region",
-                        "defaultValue": "US West 2",
+                        "defaultValue": "West US 2",
                         "toolTip": "",
                         "constraints": {
                             "allowedValues": [
                                 {
-                                    "label": "US West",
+                                    "label": "West US",
                                     "value": "westus"
                                 },
                                 {
-                                    "label": "US West 2",
+                                    "label": "West US 2",
                                     "value": "westus2"
                                 }
                             ],
