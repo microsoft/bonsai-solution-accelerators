@@ -77,23 +77,26 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
 
    REM create the user's brain
    echo %date% - %time% - Running bonsai brain create -n "Chemical_Processing_Simulink" >> %startlog%
-   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrain
-   bonsai brain create -n "Chemical_Processing_Simulink" 
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrainStart
 
-   bonsai brain show --name "Chemical_Processing_Simulink" 
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createBrain.ps1 "Chemical_Processing_Simulink" "c:/mathworks-examples/bonsai-simulink/samples/chemical-process-optimization/machine_teacher.ink"
+   
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrainStartComplete
+   @REM bonsai brain create -n "Chemical_Processing_Simulink" 
 
-   REM update the inkling for the brain
-   echo %date% - %time% - Running bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" >> %startlog%
-   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
-   bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" 
+   @REM bonsai brain show --name "Chemical_Processing_Simulink" 
 
-   bonsai brain show --name "Chemical_Processing_Simulink" 
+   @REM REM update the inkling for the brain
+   @REM echo %date% - %time% - Running bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" >> %startlog%
+   @REM powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
+   @REM bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" 
+
+   @REM bonsai brain show --name "Chemical_Processing_Simulink" 
 
    REM upload the zip file to build a sim from
-   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackage
-   bonsai simulator package modelfile create -n Chemical_Process_MW -f chemical-process-optimization.zip --base-image mathworks-simulink-2020b 
-
-   bonsai simulator package list
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackageStart
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createSimPackage.ps1 Chemical_Process_MW "c:/mathworks-examples/bonsai-simulink/samples/chemical-process-optimization/chemical-process-optimization.zip" mathworks-simulink-2020b
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackageComplete
 
    REM start the three tabs for the user
 

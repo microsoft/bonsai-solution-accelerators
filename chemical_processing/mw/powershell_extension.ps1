@@ -84,6 +84,8 @@ setx /m BONSAI_TENANT $bonsai_tenant
 #download the startup script to C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/chemical_processing/mw/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/logger.ps1","C:\StartUp\logger.ps1")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/createBrain.ps1","C:\StartUp\createBrain.ps1")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/createSimPackage.ps1","C:\StartUp\createSimPackage.ps1")
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/Microsoft.ApplicationInsights.dll","C:\StartUp\Microsoft.ApplicationInsights.dll")
 
 #download the setup script for matlab online
