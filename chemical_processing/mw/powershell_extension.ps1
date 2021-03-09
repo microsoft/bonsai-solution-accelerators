@@ -54,10 +54,6 @@ $log += "Installing Azure CLI" + $nl
 #download Edge Chromium
 $wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/MicrosoftEdgeEnterpriseX64.msi","c:\startup\MicrosoftEdgeEnterpriseX64.msi")
 
-.\MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
-
-#install Edge
-
 $log += "Installing Docker" + $nl
 
 #download Docker Desktop

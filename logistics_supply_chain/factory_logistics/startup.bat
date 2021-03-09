@@ -31,12 +31,12 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
          echo %date% - %time% - Installing Chromium >> %startlog%
          powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installEdge
          echo Configuring the browser. This may take a moment.
-         cd C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0
+         cd C:\startup
          cmd /c MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
 
-         cmd /c copy dockerinstaller.exe %USERPROFILE%\desktop\Install_Docker.exe
+         cmd /c copy c:\startup\dockerinstaller.exe %USERPROFILE%\desktop\Install_Docker.exe
 
-         cmd /c copy run_setup_matlab.mlx %USERPROFILE%\desktop\run_setup_matlab.mlx
+         cmd /c copy c:\startup\run_setup_matlab.mlx %USERPROFILE%\desktop\run_setup_matlab.mlx
        )
 
        REM go to the root  example directory 
@@ -58,7 +58,9 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
        echo %date% - %time% - Installing Bonsai CLI >> %startlog%
        
        IF %mode% == startup (
+
           pip install bonsai-cli
+
           powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installCli
 
            echo. 
@@ -79,20 +81,15 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
        )
        
        REM create the user's brain
-       echo %date% - %time% - Running bonsai brain create -n "Factory_Logistics_ABCA" >> %startlog%
-       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrain
-       bonsai brain create -n "Factory_Logistics_ABCA"
+      echo %date% - %time% - Running bonsai brain create -n "Factory_Logistics_ABCA"  >> %startlog%
+      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrainStart
+      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createBrain.ps1 "Factory_Logistics_ABCA" "C:/anylogic-examples/bonsai-anylogic/abca.ink"
+      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrainStartComplete
 
-       REM update the inkling for the brain
-       echo %date% - %time% - Running bonsai brain version update-inkling --name "Factory_Logistics_ABCA" --version 1 --file="./abca.ink" >> %startlog%
-       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
-       bonsai brain version update-inkling --name "Factory_Logistics_ABCA" --version 1 --file="./abca.ink" 
-   
-       REM now add the sim package for the user
-       REM set url=https://%BONSAI_ACR%.azurecr.io/anylogic-abca:v1 %ImageName% 
-       echo %date% - %time% - Running bonsai simulator package add -n "Factory Logistics - sim" -u %BONSAI_ACR%.azurecr.io/anylogic-abca:v1 -i 25 -r 1.0 -m 1.0 -p Linux --max-instance-count 50 >> %startlog%
-       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 addSimPackage
-       bonsai simulator package modelfile create -n ABCA -f exported.zip --base-image anylogic-professional-8 
+       REM upload the zip file to build a sim from
+       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackageStart
+       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createSimPackage.ps1 ABCA "C:/anylogic-examples/bonsai-anylogic/exported.zip" anylogic-professional-8
+       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackageComplete
      )     
 
 

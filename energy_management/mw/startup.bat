@@ -25,12 +25,12 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
       echo %date% - %time% - Installing Chromium >> %startlog%
       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installEdge
       echo Configuring the browser. This may take a moment.
-      cd C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0
+      cd C:\startup
       cmd /c MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
 
-      cmd /c copy dockerinstaller.exe %USERPROFILE%\desktop\Install_Docker.exe
+      cmd /c copy c:\startup\dockerinstaller.exe %USERPROFILE%\desktop\Install_Docker.exe
 
-      cmd /c copy run_setup_matlab.mlx %USERPROFILE%\desktop\run_setup_matlab.mlx
+      cmd /c copy c:\startup\run_setup_matlab.mlx %USERPROFILE%\desktop\run_setup_matlab.mlx
    )
 
    REM go to the root  example directory 
@@ -79,23 +79,14 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
   
    REM create the user's brain
    echo %date% - %time% - Running bonsai brain create -n "Energy_Management_Simulink"  >> %startlog%
-   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrain
-   bonsai brain create -n "Energy_Management_Simulink" 
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrainStart
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createBrain.ps1 "Energy_Management_Simulink" "c:/mathworks-examples/bonsai-simulink/samples/building_energy_management/machine_teacher.ink"
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrainStartComplete
    
-   bonsai brain show --name "Energy_Management_Simulink" 
-
-   REM update the inkling for the brain
-   echo %date% - %time% - Running bonsai brain version update-inkling --name "Energy_Management_Simulink"  --version 1 --file="./machine_teacher.ink" >> %startlog%
-   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
-   bonsai brain version update-inkling --name "Energy_Management_Simulink"  --version 1 --file="./machine_teacher.ink" 
-
-   bonsai brain show --name "Energy_Management_Simulink" 
-
    REM upload the zip file to build a sim from
-   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackage
-   bonsai simulator package modelfile create -n Energy_Management_MW -f building_energy_management.zip --base-image mathworks-simulink-2020b 
-
-   bonsai simulator package list
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackageStart
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createSimPackage.ps1 Energy_Management_MW "c:/mathworks-examples/bonsai-simulink/samples/building_energy_management/building_energy_management.zip" mathworks-simulink-2020b
+   powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackageComplete
  
    REM start the three tabs for the user
 

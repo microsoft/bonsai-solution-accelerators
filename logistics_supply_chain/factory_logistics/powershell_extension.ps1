@@ -52,10 +52,7 @@ $log += "Installing Azure CLI" + $nl
 .\AzureCliInstaller.msi /quiet
 
 #download Edge Chromium
-$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/MicrosoftEdgeEnterpriseX64.msi","MicrosoftEdgeEnterpriseX64.msi")
-
-#install Edge Chromium
-#.\MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
+$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/MicrosoftEdgeEnterpriseX64.msi","c:\startup\MicrosoftEdgeEnterpriseX64.msi")
 
 $log += "Installing Docker" + $nl
 
@@ -114,13 +111,14 @@ $wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/ple8.7.z
 
 $log += "Downloading AnyLogic environment configuration" + $nl
 
+$branch = "mw"
+
 #download the startup script to C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/logger.ps1","C:\StartUp\logger.ps1")
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/Microsoft.ApplicationInsights.dll","C:\StartUp\Microsoft.ApplicationInsights.dll")
-
-#download the setup script for matlab online
-$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/batchsetup_cp.mlx","run_setup_matlab.mlx")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/logger.ps1","C:\StartUp\logger.ps1")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/createBrain.ps1","C:\StartUp\createBrain.ps1")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/createSimPackage.ps1","C:\StartUp\createSimPackage.ps1")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/Microsoft.ApplicationInsights.dll","C:\StartUp\Microsoft.ApplicationInsights.dll")
 
 
 $log += "Downloading startup" + $nl

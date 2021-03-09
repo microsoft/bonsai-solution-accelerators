@@ -54,7 +54,9 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    echo %date% - %time% - Installing Bonsai CLI >> %startlog%
    
    IF %mode% == startup (
+
       pip install bonsai-cli
+      
       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installCli
 
       echo. 
@@ -78,21 +80,9 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
    REM create the user's brain
    echo %date% - %time% - Running bonsai brain create -n "Chemical_Processing_Simulink" >> %startlog%
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrainStart
-
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createBrain.ps1 "Chemical_Processing_Simulink" "c:/mathworks-examples/bonsai-simulink/samples/chemical-process-optimization/machine_teacher.ink"
-   
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrainStartComplete
-   @REM bonsai brain create -n "Chemical_Processing_Simulink" 
-
-   @REM bonsai brain show --name "Chemical_Processing_Simulink" 
-
-   @REM REM update the inkling for the brain
-   @REM echo %date% - %time% - Running bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" >> %startlog%
-   @REM powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 updateInkling
-   @REM bonsai brain version update-inkling --name "Chemical_Processing_Simulink"  --version 1 --file="./machine_teacher.ink" 
-
-   @REM bonsai brain show --name "Chemical_Processing_Simulink" 
-
+ 
    REM upload the zip file to build a sim from
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackageStart
    powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createSimPackage.ps1 Chemical_Process_MW "c:/mathworks-examples/bonsai-simulink/samples/chemical-process-optimization/chemical-process-optimization.zip" mathworks-simulink-2020b
