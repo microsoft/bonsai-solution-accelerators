@@ -114,7 +114,7 @@ $log += "Downloading AnyLogic environment configuration" + $nl
 $branch = "mw"
 
 #download the startup script to C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/main/logistics_supply_chain/factory_logistics/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/logistics_supply_chain/factory_logistics/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/logger.ps1","C:\StartUp\logger.ps1")
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/createBrain.ps1","C:\StartUp\createBrain.ps1")
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/createSimPackage.ps1","C:\StartUp\createSimPackage.ps1")
