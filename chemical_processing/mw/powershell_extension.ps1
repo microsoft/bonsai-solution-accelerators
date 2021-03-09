@@ -52,7 +52,7 @@ $log += "Installing Azure CLI" + $nl
 .\AzureCliInstaller.msi /quiet
 
 #download Edge Chromium
-$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/MicrosoftEdgeEnterpriseX64.msi","MicrosoftEdgeEnterpriseX64.msi")
+$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/MicrosoftEdgeEnterpriseX64.msi","c:\startup\MicrosoftEdgeEnterpriseX64.msi")
 
 .\MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
 

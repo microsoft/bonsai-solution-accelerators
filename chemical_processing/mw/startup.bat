@@ -22,11 +22,11 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
 
    IF %mode% == startup (
       REM install Edge Chromium
-      @REM echo %date% - %time% - Installing Chromium >> %startlog%
-      @REM powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installEdge
-      @REM echo Configuring the browser. This may take a moment.
-      @REM cd C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0
-      @REM cmd /c MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
+      echo %date% - %time% - Installing Chromium >> %startlog%
+      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installEdge
+      echo Configuring the browser. This may take a moment.
+      cd C:\startup
+      cmd /c MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
 
       cmd /c copy c:\startup\dockerinstaller.exe %USERPROFILE%\desktop\Install_Docker.exe
 
