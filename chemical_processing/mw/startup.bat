@@ -22,15 +22,15 @@ IF NOT EXIST "C:\mathworks-examples\bonsai-simulink" (
 
    IF %mode% == startup (
       REM install Edge Chromium
-      echo %date% - %time% - Installing Chromium >> %startlog%
-      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installEdge
-      echo Configuring the browser. This may take a moment.
-      cd C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0
-      cmd /c MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
+      @REM echo %date% - %time% - Installing Chromium >> %startlog%
+      @REM powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 installEdge
+      @REM echo Configuring the browser. This may take a moment.
+      @REM cd C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0
+      @REM cmd /c MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
 
-      cmd /c copy dockerinstaller.exe %USERPROFILE%\desktop\Install_Docker.exe
+      cmd /c copy c:\startup\dockerinstaller.exe %USERPROFILE%\desktop\Install_Docker.exe
 
-      cmd /c copy run_setup_matlab.mlx %USERPROFILE%\desktop\run_setup_matlab.mlx
+      cmd /c copy c:\startup\run_setup_matlab.mlx %USERPROFILE%\desktop\run_setup_matlab.mlx
    )
 
    REM go to the root  example directory 

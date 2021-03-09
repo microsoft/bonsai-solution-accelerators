@@ -9,6 +9,8 @@ Project Bonsai accelerators provide everything needed to kickstart industrial AI
 - Assess trained Bonsai brain
 - Export Bonsai brain & explore predictions
 
+## Data Collection
+Telemetry data is captured during the SA provisioning process. To disable this capability, update the `shared/logger.ps1` file in your own fork and set `$enabled = 0`. 
 
 ## Contributing
 

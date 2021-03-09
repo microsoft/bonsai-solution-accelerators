@@ -54,10 +54,14 @@ $log += "Installing Azure CLI" + $nl
 #download Edge Chromium
 $wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/MicrosoftEdgeEnterpriseX64.msi","MicrosoftEdgeEnterpriseX64.msi")
 
+.\MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
+
+#install Edge
+
 $log += "Installing Docker" + $nl
 
 #download Docker Desktop
-$wc.DownloadFile("https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe","dockerinstaller.exe")
+$wc.DownloadFile("https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe","c:\startup\dockerinstaller.exe")
 
 #download VS Code
 $log += "Installing VS Code" + $nl
@@ -81,15 +85,17 @@ setx /m BONSAI_WORKSPACE $bonsai_workspace
 setx /m BONSAI_ACR $bonsai_container_registry
 setx /m BONSAI_TENANT $bonsai_tenant
 
+$branch = "mw"
+
 #download the startup script to C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/chemical_processing/mw/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/logger.ps1","C:\StartUp\logger.ps1")
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/createBrain.ps1","C:\StartUp\createBrain.ps1")
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/createSimPackage.ps1","C:\StartUp\createSimPackage.ps1")
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/Microsoft.ApplicationInsights.dll","C:\StartUp\Microsoft.ApplicationInsights.dll")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/chemical_processing/mw/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/logger.ps1","C:\StartUp\logger.ps1")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/createBrain.ps1","C:\StartUp\createBrain.ps1")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/createSimPackage.ps1","C:\StartUp\createSimPackage.ps1")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/Microsoft.ApplicationInsights.dll","C:\StartUp\Microsoft.ApplicationInsights.dll")
 
 #download the setup script for matlab online
-$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/batchsetup_cp.mlx","run_setup_matlab.mlx")
+$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/batchsetup_cp.mlx","c:\startup\run_setup_matlab.mlx")
 
 
 $log += "Downloading startup" + $nl
