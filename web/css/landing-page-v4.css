@@ -47,9 +47,9 @@
   left: 26px;
   overflow: hidden;
   padding: 10.6px 7.8px;
-  position: absolute;
+  position: relative;
   top: 19px;
-  width: 45px;
+  width: 175px;
 }
 .landing-page-v4 .building-e-ent-292197-XUVN7C {
   background-color: transparent;
@@ -384,7 +384,7 @@
   font-style: normal;
   font-weight: 300;
   height: auto;
-  left: 418px;
+  left: 170px;
   letter-spacing: 0.00px;
   line-height: 57.2px;
   position: absolute;

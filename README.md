@@ -1,5 +1,5 @@
 # Project Bonsai Solution Accelerators
-Bonsai accelerators provide everything needed to kickstart industrial AI solutions including  development resources, intergrated simulators, and customizable machine teaching plans.
+Project Bonsai accelerators provide everything needed to kickstart industrial AI solutions including  development resources, intergrated simulators, and customizable machine teaching plans.
 
 ## How do Solution Accelerators work?
 - Provision solution accelator workspace
@@ -9,6 +9,8 @@ Bonsai accelerators provide everything needed to kickstart industrial AI solutio
 - Assess trained Bonsai brain
 - Export Bonsai brain & explore predictions
 
+## Data Collection
+Telemetry data is captured during the SA provisioning process. To disable this capability, update the `shared/logger.ps1` file in your own fork and set `$enabled = 0`. 
 
 ## Contributing
 

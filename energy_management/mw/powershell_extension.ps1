@@ -18,7 +18,7 @@ $log += "Creating directories" + $nl
 
 #create the startup folders (used by the bat script)
 mkdir c:\startup
-mkdir c:\anylogic-examples
+mkdir c:\mathworks-examples
 
 
 $log += "Updating path" + $nl
@@ -59,14 +59,6 @@ $log += "Installing Docker" + $nl
 #download Docker Desktop
 $wc.DownloadFile("https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe","c:\startup\dockerinstaller.exe")
 
-#install Docker
-#.\dockerinstaller.exe install --quiet
-
-#add the BonsaiUser to the docker-users group
-# net localgroup docker-users "BonsaiUser" /ADD
-
-#$env:path += ";C:\Program Files\Docker\Docker\resources\"
-
 #download VS Code
 $log += "Installing VS Code" + $nl
 
@@ -89,36 +81,17 @@ setx /m BONSAI_WORKSPACE $bonsai_workspace
 setx /m BONSAI_ACR $bonsai_container_registry
 setx /m BONSAI_TENANT $bonsai_tenant
 
-$log += "Downloading AnyLogic" + $nl
-
-#download AnyLogic
-$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/anylogic-ple-8.7.0.x86_64.exe","anylogic-ple-8.7.0.x86_64.exe")
-
-$log += "Installing AnyLogic" + $nl
-
-#install AnyLogic silently
-cmd /c .\anylogic-ple-8.7.0.x86_64.exe /S
-
-#$log += "Downloading firewall rules" + $nl
-
-#download the firewall rules
-$wc.DownloadFile("https://github.com/microsoft/bonsai-solution-accelerators/blob/main/logistics_supply_chain/factory_logistics/advfirewallpolicy.wfw?raw=true","C:\StartUp\advfirewallpolicy.wfw")
-
-$log += "Downloading AnyLogic environment configuration" + $nl
-
-#download AnyLogic info
-$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/ple8.7.zip","C:\startup\ple8.7.zip")
-
-$log += "Downloading AnyLogic environment configuration" + $nl
-
 $branch = "mw"
 
 #download the startup script to C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
-$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/logistics_supply_chain/factory_logistics/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
+$wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/energy_management/mw/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/logger.ps1","C:\StartUp\logger.ps1")
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/createBrain.ps1","C:\StartUp\createBrain.ps1")
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/createSimPackage.ps1","C:\StartUp\createSimPackage.ps1")
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/shared/Microsoft.ApplicationInsights.dll","C:\StartUp\Microsoft.ApplicationInsights.dll")
+
+#download the setup script for matlab online
+$wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/batchsetup_em.mlx","c:\startup\run_setup_matlab.mlx")
 
 
 $log += "Downloading startup" + $nl
