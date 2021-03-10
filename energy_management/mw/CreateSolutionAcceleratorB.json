@@ -31,11 +31,12 @@
     },
     "variables": {
       
-        "createBonsaiResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/CreateBonsaiArm.json",
-        "createVmResource": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/shared/CreateWindowsVirtualMachineWithExtensionB.json",
+        "branch":"main",
+        "createBonsaiResource": "[concat('https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/', variables('branch'), '/shared/CreateBonsaiArm.json')]",
+        "createVmResource": "[concat('https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/', variables('branch'), '/shared/CreateWindowsVirtualMachineWithExtension.json')]",
         "adminUserName": "BonsaiUser",
         "bonsaiWorkspaceName": "[concat(parameters('bonsaiWorkspaceName'),'.acc4.bons.ai')]",
-        "powershell_extension": "https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/mw/energy_management/mw/powershell_extension.ps1"
+        "powershell_extension": "[concat('https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/', variables('branch'), '/energy_management/mw/powershell_extension.ps1')]"
 
     },
     "resources": [

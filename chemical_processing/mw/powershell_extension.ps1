@@ -81,7 +81,7 @@ setx /m BONSAI_WORKSPACE $bonsai_workspace
 setx /m BONSAI_ACR $bonsai_container_registry
 setx /m BONSAI_TENANT $bonsai_tenant
 
-$branch = "mw"
+$branch = "main"
 
 #download the startup script to C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/chemical_processing/mw/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")

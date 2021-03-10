@@ -111,7 +111,7 @@ $wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/ple8.7.z
 
 $log += "Downloading AnyLogic environment configuration" + $nl
 
-$branch = "mw"
+$branch = "main"
 
 #download the startup script to C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 $wc.DownloadFile("https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/$branch/logistics_supply_chain/factory_logistics/startup.bat","C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\startup.bat")
