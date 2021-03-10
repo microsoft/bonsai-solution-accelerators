@@ -48,5 +48,5 @@ while($attempt -lt $max_attempts)
 
     }
         
-    Start-Sleep -Seconds 1
+    Start-Sleep -Seconds 5
 }
