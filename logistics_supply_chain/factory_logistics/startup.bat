@@ -35,8 +35,6 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
          cmd /c MicrosoftEdgeEnterpriseX64.msi /quiet /norestart
 
          cmd /c copy c:\startup\dockerinstaller.exe %USERPROFILE%\desktop\Install_Docker.exe
-
-         cmd /c copy c:\startup\run_setup_matlab.mlx %USERPROFILE%\desktop\run_setup_matlab.mlx
        )
 
        REM go to the root  example directory 
@@ -83,12 +81,12 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
        REM create the user's brain
       echo %date% - %time% - Running bonsai brain create -n "Factory_Logistics_ABCA"  >> %startlog%
       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrainStart
-      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createBrain.ps1 "Factory_Logistics_ABCA" "C:/anylogic-examples/bonsai-anylogic/abca.ink"
+      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createBrain.ps1 "Factory_Logistics_ABCA" "C:/anylogic-examples/bonsai-anylogic/samples/abca/abca.ink"
       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 createBrainStartComplete
 
        REM upload the zip file to build a sim from
        powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackageStart
-       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createSimPackage.ps1 ABCA "C:/anylogic-examples/bonsai-anylogic/exported.zip" anylogic-professional-8
+       powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\createSimPackage.ps1 ABCA "C:/anylogic-examples/bonsai-anylogic/samples/abca/exported.zip" anylogic-professional-8
        powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 uploadPackageComplete
      )     
 

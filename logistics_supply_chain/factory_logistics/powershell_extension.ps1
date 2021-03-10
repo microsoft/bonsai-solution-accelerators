@@ -57,7 +57,7 @@ $wc.DownloadFile("https://diagsebvvxruezlc2c.blob.core.windows.net/exes/Microsof
 $log += "Installing Docker" + $nl
 
 #download Docker Desktop
-$wc.DownloadFile("https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe","dockerinstaller.exe")
+$wc.DownloadFile("https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe","c:\startup\dockerinstaller.exe")
 
 #install Docker
 #.\dockerinstaller.exe install --quiet

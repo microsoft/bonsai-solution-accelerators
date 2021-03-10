@@ -1,5 +1,4 @@
-﻿#create a Bonsai brain using the CLI (with retries) then
-#update the brain with the inkling
+﻿#create a Bonsai simulator package using the CLI (with retries) 
 
 $attempt = 0
 $max_attempts = 5
