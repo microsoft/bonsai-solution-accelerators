@@ -14,6 +14,11 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- task: PowerShell@2
+  inputs:
+    filePath: 'https://raw.githubusercontent.com/BonsaiAI/solution-accelerator-tests/main/logistics_supply_chain/factory_logistics/scripts/deployment_test.ps1?token=ADFTVNM7ETYOPDCD2NAGRMLAKNY26'
+
+
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
