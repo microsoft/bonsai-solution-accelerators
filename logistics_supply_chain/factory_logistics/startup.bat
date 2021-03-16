@@ -96,7 +96,7 @@ powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 startAc
      REM start the three tabs for the user
      echo %date% - %time% - Opening https://cloud.anylogic.com/model/d5d019ef-7cf3-4e92-bfdc-1dccd9f9853c?mode=SETTINGS >> %startlog%
      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 openAlCloud
-     cmd /c start msedge https://cloud.anylogic.com/model/d5d019ef-7cf3-4e92-bfdc-1dccd9f9853c?mode=SETTINGS
+     cmd /c start msedge https://cloud.anylogic.com/model/d54b0445-a16e-4825-9265-05da09766298?mode=SETTINGS&tab=GENERAL
      
      echo %date% - %time% - Opening https://preview.bons.ai/ >> %startlog%
      powershell.exe -ExecutionPolicy Unrestricted -File C:\startup\logger.ps1 openBonsai
