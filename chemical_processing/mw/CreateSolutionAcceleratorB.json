@@ -33,7 +33,7 @@
       
         "branch": "main",
         "createBonsaiResource": "[concat('https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/', variables('branch'), '/shared/CreateBonsaiArm.json')]",
-        "createVmResource": "[concat('https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/', variables('branch'), '/shared/CreateWindowsVirtualMachineWithExtension.json')]",
+        "createVmResource": "[concat('https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/', variables('branch'), '/shared/CreateWindowsVirtualMachineWithExtensionB.json')]",
         "adminUserName": "BonsaiUser",
         "bonsaiWorkspaceName": "[concat(parameters('bonsaiWorkspaceName'),'.acc2.bons.ai')]",
         "powershell_extension": "[concat('https://raw.githubusercontent.com/microsoft/bonsai-solution-accelerators/', variables('branch'), '/chemical_processing/mw/powershell_extension.ps1')]"
